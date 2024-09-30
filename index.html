@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Wheely Weather</title>
+    <link rel="stylesheet" href=".css"> 
 </head>
 <body>
-    
+    <header>
+        <div class="logo">Wheely Weather</div>
+        <div class="burger-menu" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <nav id="nav-menu" class="hidden">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Forecast</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
 </body>
 </html>
