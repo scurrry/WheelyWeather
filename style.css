@@ -1,0 +1,105 @@
+:root {
+    --color-beige: #F2E2C9;
+    --color-yellow: #FBB108;
+    --color-orange: #FE4B01;
+    --color-pink: #FF9B9E;
+}
+
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Entfernen von unerwünschtem Abstand nach dem Header */
+main, section {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--color-pink);
+}
+
+/* Logo styling */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--color-beige);
+}
+
+/* Burger menu styling */
+.burger-menu {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.burger-menu .bar {
+    height: 3px;
+    background-color: var(--color-beige);
+    border-radius: 5px;
+}
+
+/* Section styling */
+.section {
+    height: 1024px; /* Höhe jeder Sektion */
+    width: 100%;
+}
+
+.section-beige {
+    background-color: var(--color-beige); /* Beige Hintergrund für die erste Sektion */
+}
+
+.section-yellow {
+    background-color: var(--color-yellow); /* Gelber Hintergrund für die zweite Sektion */
+}
+
+.section-pink {
+    background-color: var(--color-pink); /* Pinker Hintergrund für die dritte Sektion */
+}
+
+/* Main title styling */
+.main-title {
+    font-size: 6rem; /* Große Schrift für den Titel */
+    color: var(--color-orange); /* Titel in Orange */
+    text-align: center;
+    margin-top: 200px; /* Abstand vom oberen Rand der Seite */
+    font-weight: bold;
+}
+
+/* Hidden nav menu */
+.hidden {
+    display: none;
+}
+
+/* Visible nav menu (when active) */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: var(--color-pink);
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    width: 150px;
+}
+
+nav ul li {
+    text-align: center;
+    padding: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+}
