@@ -3,18 +3,19 @@
     --color-yellow: #FBB108;
     --color-orange: #FE4B01;
     --color-pink: #FF9B9E;
+    --color-light-pink: #ffb0c1;
 }
 
 /* General styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-/* Entfernen von unerwünschtem Abstand nach dem Header */
-main, section {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-beige);
 }
 
 /* Header styling */
@@ -24,9 +25,9 @@ header {
     align-items: center;
     padding: 15px;
     background-color: var(--color-pink);
+    position: relative;
 }
 
-/* Logo styling */
 .logo {
     font-size: 24px;
     font-weight: bold;
@@ -35,6 +36,8 @@ header {
 
 /* Burger menu styling */
 .burger-menu {
+    position: absolute;
+    right: 20px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -45,61 +48,161 @@ header {
 
 .burger-menu .bar {
     height: 3px;
-    background-color: var(--color-beige);
+    background-color: var(--color-yellow);
     border-radius: 5px;
+}
+
+/* Navigation menu styling */
+#nav-menu {
+    display: none; /* Standardmäßig ausgeblendet */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: var(--color-pink);
+    padding: 15px;
+    border-radius: 5px;
+    width: 200px;
+}
+
+#nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#nav-menu li {
+    margin-bottom: 10px;
+}
+
+#nav-menu a {
+    text-decoration: none;
+    color: var(--color-beige);
+    font-size: 1.5rem;
+}
+
+.hidden {
+    display: flex;
 }
 
 /* Section styling */
 .section {
-    height: 1024px; /* Höhe jeder Sektion */
+    height: 1024px;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.main-title {
+    font-size: 10rem;
+    color: var(--color-orange);
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
 }
 
 .section-beige {
-    background-color: var(--color-beige); /* Beige Hintergrund für die erste Sektion */
+    background-color: var(--color-beige);
 }
 
 .section-yellow {
-    background-color: var(--color-yellow); /* Gelber Hintergrund für die zweite Sektion */
+    background-color: var(--color-yellow);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 100px;
+    padding-top: 50px;
+}
+
+.yellow-title {
+    font-size: 5rem;
+    color: var(--color-orange);
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.yellow-text {
+    font-size: 24px;
+    color: var(--color-orange);
+    text-align: left;
+    max-width: 600px;
+    line-height: 1.6;
 }
 
 .section-pink {
-    background-color: var(--color-pink); /* Pinker Hintergrund für die dritte Sektion */
-}
-
-/* Main title styling */
-.main-title {
-    font-size: 6rem; /* Große Schrift für den Titel */
-    color: var(--color-orange); /* Titel in Orange */
-    text-align: center;
-    margin-top: 200px; /* Abstand vom oberen Rand der Seite */
-    font-weight: bold;
-}
-
-/* Hidden nav menu */
-.hidden {
-    display: none;
-}
-
-/* Visible nav menu (when active) */
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     background-color: var(--color-pink);
-    position: absolute;
-    top: 60px;
-    right: 15px;
-    width: 150px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 100px;
 }
 
-nav ul li {
-    text-align: center;
-    padding: 10px;
+.pink-title {
+    font-size: 5rem;
+    color: var(--color-orange);
+    text-align: left;
+    font-weight: bold;
+    margin-right: 50px;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #000;
-    font-size: 18px;
+.city-list {
+    list-style: none;
+    font-size: 2.5rem;
+    color: var(--color-yellow);
+}
+
+.city-list li {
+    margin-bottom: 20px;
+}
+
+/* Footer styling */
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 100px;
+    background-color: var(--color-beige);
+    align-items: center;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-column h3 {
+    font-size: 2.5rem;
+    color: var(--color-orange);
+    margin-bottom: 20px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.city-list {
+    font-size: 2.5rem;
+    color: var(--color-yellow);
+}
+
+.city-list li {
+    margin-bottom: 20px;
+}
+
+.contact {
+    text-align: right;
+}
+
+.contact h3 {
+    font-size: 2.5rem;
+    color: var(--color-pink);
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 1.5rem;
+    color: var(--color-light-pink);
+    margin-bottom: 10px;
 }

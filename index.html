@@ -16,32 +16,73 @@
         </div>
     </header>
 
-    <!-- Hauptbereich der Seite -->
+    <nav id="nav-menu" class="hidden">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Bern</a></li>
+            <li><a href="#">Zürich</a></li>
+            <li><a href="#">Basel</a></li>
+            <li><a href="#">Lugano</a></li>
+            <li><a href="#">Geneva</a></li>
+            <li><a href="#">Lausanne</a></li>
+        </ul>
+    </nav>
+
     <main>
         <!-- Erste Sektion mit beige Hintergrund und dem Titel -->
         <section class="section section-beige">
             <h1 class="main-title">ready to ride</h1>
         </section>
 
-        <!-- Zweite Sektion mit gelbem Hintergrund -->
-        <section class="section section-yellow"></section>
+        <!-- Zweite Sektion mit gelbem Hintergrund und Inhalt -->
+        <section class="section section-yellow">
+            <div class="content">
+                <h2 class="yellow-title">Does the Swiss population bike through wind, rain, and shine?</h2>
+                <p class="yellow-text">
+                    We want to find out if the weather really makes a difference when it comes to renting bikes. To do this, we analyzed data from several Swiss cities, looking at local weather conditions and comparing it to bike rental data from the Publibike app. By examining how many bikes were rented under various weather conditions, we aim to understand if factors like rain, sun, or temperature have a significant impact on people's decision to rent a bike.
+                </p>
+            </div>
+        </section>
 
-        <!-- Dritte Sektion mit pinkem Hintergrund -->
-        <section class="section section-pink"></section>
+        <!-- Neue Sektion mit rosa Hintergrund -->
+        <section class="section section-pink">
+            <div class="content">
+                <h2 class="pink-title">Discover Your City’s Bike Habits</h2>
+                <ul class="city-list">
+                    <li>Bern</li>
+                    <li>Zürich</li>
+                    <li>Basel</li>
+                    <li>Lugano</li>
+                    <li>Geneva</li>
+                    <li>Lausanne</li>
+                </ul>
+            </div>
+        </section>
     </main>
 
-    <nav id="nav-menu" class="hidden">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Bern</a></li>
-            <li><a href="#">Zurich</a></li>
-            <li><a href="#">Basel</a></li>
-            <li><a href="#">Lugano</a></li>
-            <li><a href="#">Geneva</a></li>
-            <li><a href="#">Lausanne</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-    </nav>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-column">
+            <h3>Home</h3>
+            <h3>About us</h3>
+        </div>
+        <div class="footer-column">
+            <ul class="city-list">
+                <li>Bern</li>
+                <li>Zürich</li>
+                <li>Basel</li>
+                <li>Lugano</li>
+                <li>Geneva</li>
+                <li>Lausanne</li>
+            </ul>
+        </div>
+        <div class="footer-column contact">
+            <h3>Contact</h3>
+            <p>selina.dostilio@stud.fhgr.ch</p>
+            <p>laura.khoury@stud.fhgr.ch</p>
+        </div>
+    </footer>
 
     <script>
         function toggleMenu() {
