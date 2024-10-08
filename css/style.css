@@ -54,7 +54,7 @@ header {
 
 /* Navigation menu styling */
 #nav-menu {
-    display: none; /* Standardmäßig ausgeblendet */
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 60px;
@@ -87,7 +87,6 @@ header {
 
 /* Section styling */
 .section {
-    height: 1024px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -140,12 +139,20 @@ header {
     padding-left: 100px;
 }
 
+/* Title und Bild Styling */
+.city-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
 .pink-title {
     font-size: 5rem;
     color: var(--color-orange);
     text-align: left;
     font-weight: bold;
-    margin-right: 50px;
+    margin-bottom: 20px;
 }
 
 .city-list {
@@ -156,6 +163,22 @@ header {
 
 .city-list li {
     margin-bottom: 20px;
+}
+
+/* Links in der Stadtliste */
+.city-list li a {
+    text-decoration: none;
+    color: var(--color-yellow);
+}
+
+.city-list li a:hover {
+    text-decoration: underline;
+}
+
+/* Styling für die Schweiz-Karte */
+.swiss-map {
+    max-width: 400px;
+    height: auto;
 }
 
 /* Footer styling */
@@ -174,8 +197,17 @@ footer {
 
 .footer-column h3 {
     font-size: 2.5rem;
-    color: var(--color-orange);
     margin-bottom: 20px;
+}
+
+/* Link Style für Home und About Us in Orange */
+.footer-link {
+    text-decoration: none;
+    color: var(--color-orange);
+}
+
+.footer-link:hover {
+    text-decoration: underline;
 }
 
 .footer-column ul {
@@ -189,6 +221,15 @@ footer {
 
 .city-list li {
     margin-bottom: 20px;
+}
+
+.city-list li a {
+    text-decoration: none;
+    color: var(--color-yellow);
+}
+
+.city-list li a:hover {
+    text-decoration: underline;
 }
 
 .contact {
