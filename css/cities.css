@@ -6,7 +6,6 @@
     --color-yellow: #FBB108;
 }
 
-/* General styles */
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +17,7 @@ body {
     background-color: var(--color-beige);
 }
 
-/* Header styling */
+/* Header Styling */
 header {
     display: flex;
     justify-content: space-between;
@@ -34,7 +33,6 @@ header {
     color: var(--color-beige);
 }
 
-/* Burger menu styling */
 .burger-menu {
     position: absolute;
     right: 20px;
@@ -52,40 +50,7 @@ header {
     border-radius: 5px;
 }
 
-/* Navigation menu styling */
-#nav-menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: var(--color-pink);
-    padding: 15px;
-    border-radius: 5px;
-    width: 200px;
-}
-
-#nav-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#nav-menu li {
-    margin-bottom: 10px;
-}
-
-#nav-menu a {
-    text-decoration: none;
-    color: var(--color-beige);
-    font-size: 1.5rem;
-}
-
-.hidden {
-    display: flex;
-}
-
-/* Bern section styling */
+/* Bern Section Styling */
 .bern-section {
     display: flex;
     justify-content: space-between;
@@ -93,21 +58,6 @@ header {
     padding: 50px;
     background-color: var(--color-beige);
 }
-
-/* Styling the container for the image */
-.bern-image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 50%;
-}
-
-/* Styling the image itself */
-.bern-image {
-    max-width: 100%;
-    height: auto;
-}
-
 
 .bern-details {
     max-width: 300px;
@@ -125,36 +75,26 @@ header {
     margin-bottom: 10px;
 }
 
-.map-container {
-    position: relative;
+.bern-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
 }
 
-.map-image {
-    max-width: 600px;
+.bern-image {
+    max-width: 100%;
     height: auto;
 }
 
-.location-pin {
-    position: absolute;
-    top: 40%;
-    left: 60%;
-    background-color: var(--color-orange);
-    color: var(--color-beige);
-    padding: 10px;
-    border-radius: 50%;
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* Statistics section styling */
+/* Statistics Section Styling */
 .statistics-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 50px;
-    background-color: var(--color-yellow); /* Changed to yellow */
+    background-color: var(--color-yellow);
     margin-top: 30px;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -167,6 +107,29 @@ header {
     text-align: center;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.time-button {
+    background-color: var(--color-pink);
+    color: var(--color-orange);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.time-button:hover {
+    background-color: var(--color-light-pink);
+}
+
 .statistics-box {
     width: 80%;
     max-width: 800px;
@@ -177,12 +140,7 @@ header {
     text-align: center;
 }
 
-.statistics-box p {
-    font-size: 1.5rem;
-    color: var(--color-orange);
-}
-
-/* Footer styling */
+/* Footer Styling */
 footer {
     display: flex;
     justify-content: space-between;
@@ -201,7 +159,6 @@ footer {
     margin-bottom: 20px;
 }
 
-/* Link Style für Home und About Us in Orange */
 .footer-link {
     text-decoration: none;
     color: var(--color-orange);
@@ -233,10 +190,6 @@ footer {
     text-decoration: underline;
 }
 
-.contact {
-    text-align: right;
-}
-
 .contact h3 {
     font-size: 2.5rem;
     color: var(--color-pink);
@@ -245,6 +198,6 @@ footer {
 
 .contact p {
     font-size: 1.5rem;
-    color: var(--color-pink);
+    color: var(--color-light-pink);
     margin-bottom: 10px;
 }

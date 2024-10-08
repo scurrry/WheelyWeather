@@ -6,6 +6,7 @@
     <title>Wheely Weather - Bern</title>
     <!-- Correct path to CSS file -->
     <link rel="stylesheet" href="../css/cities.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -30,30 +31,35 @@
 
     <main>
         <!-- Existing Bern Section -->
-        <main>
-            <!-- Existing Bern Section -->
-            <section class="bern-section">
-                <div class="bern-details">
-                    <h1>Bern</h1>
-                    <p class="info"><strong>Sunshine:</strong> 6 hours</p>
-                    <p class="info"><strong>Weather:</strong> rainy</p>
-                    <p class="info"><strong>Temperature:</strong> 18°C</p>
-                    <p class="info"><strong>Number of Bikes available:</strong> XY</p>
-                </div>
-        
-                <!-- Adding the pink map of Switzerland -->
-                <div class="bern-image-container">
-                    <img src="../images/schweiz_rosa.png" alt="Pink map of Switzerland" class="bern-image">
-                </div>
-            </section>
-        </main>
-        
+        <section class="bern-section">
+            <div class="bern-details">
+                <h1>Bern</h1>
+                <p class="info"><strong>Sunshine:</strong> 6 hours</p>
+                <p class="info"><strong>Weather:</strong> rainy</p>
+                <p class="info"><strong>Temperature:</strong> 18°C</p>
+                <p class="info"><strong>Number of Bikes available:</strong> XY</p>
+            </div>
+
+            <!-- Adding the pink map of Switzerland -->
+            <div class="bern-image-container">
+                <img src="../images/schweiz_rosa.png" alt="Pink map of Switzerland" class="bern-image">
+            </div>
+        </section>
 
         <!-- New Section for Statistics -->
         <section class="statistics-section">
-            <h2 class="statistics-title">Live Bike & Weather Statistics</h2>
+            <h2 class="statistics-title">Bike & Weather Statistics</h2>
+
+            <!-- Buttons for time selection -->
+            <div class="button-container">
+                <button class="time-button" id="yesterday">Yesterday</button>
+                <button class="time-button" id="threeDaysAgo">3 days ago</button>
+                <button class="time-button" id="oneWeekAgo">1 week ago</button>
+            </div>
+
+            <!-- Statistics Box -->
             <div class="statistics-box">
-                <p>Loading statistics...</p>
+                <canvas id="wheelyWeatherChart" width="400" height="200"></canvas>
                 <!-- This is where you will dynamically insert statistics data -->
             </div>
         </section>
@@ -86,5 +92,6 @@
             menu.classList.toggle('hidden');
         }
     </script>
+    <script src="bern.js"></script>
 </body>
 </html>
