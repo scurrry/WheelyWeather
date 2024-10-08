@@ -11,6 +11,12 @@ yesterdayButton.addEventListener("click", async () => {
 
 threeDaysAgoButton.addEventListener("click", async () => {
     console.log("Three Days Ago");
+    let url = "https://etl.mmp.li/WheelyWeather/etl/unloadThreeDays.php?location=Bern&date=";
+    const data = await fetchData(url);
+    console.log(data);
+    //TODO Create the new chart
+
+
     //TODO Hier müsst ihr den neuen Fetch auf die unloadThreeDays.php machen
     // Nachdem FetchData dynamisch erstellt wurde hier den Funtkionsaufruf anpassen
     //fetchData("unloadThreeDays.php", "bern");
@@ -41,9 +47,10 @@ function getHourlyLabels() {
 // Fetch data from the API for yesterday
 // TODO das Fetch Data muss so variabel gestaltet sein, dass die verschiedenen Endpoints angesteuert werden könne
 // ${unload.php} muss angepasst werden
-async function fetchData() {
+async function fetchData(url) {
     const yesterday = getYesterdayDate();
-    const apiUrl = `https://etl.mmp.li/WheelyWeather/etl/unload.php?location=Bern&date=${yesterday}`;
+    const apiUrl = `${url}${yesterday}`;
+    console.log(apiUrl);
     
     try {
         const response = await fetch(apiUrl);
@@ -59,7 +66,8 @@ async function fetchData() {
 
 // Function to initialize the chart
 async function initChart() {
-    const data = await fetchData();
+    let url = "https://etl.mmp.li/WheelyWeather/etl/unload.php?location=Bern&date="
+    const data = await fetchData(url);
 
     if (!data || data.length === 0) {
         console.error('No data returned from API');
