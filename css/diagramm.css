@@ -1,0 +1,21 @@
+/* Farben definieren */
+:root {
+    --color-beige: #F2E2C9;
+    --color-pink: #FF9B9E;
+    --color-orange: #FE4B01;
+    --color-light-pink: #ffb0c1;
+    --color-yellow: #FBB108;
+}
+
+/* Hintergrundfarbe und Textfarbe */
+body {
+    background-color: var(--color-beige); /* Beige Hintergrund */
+    color: var(--color-orange); /* Textfarbe Orange */
+    font-family: Arial, sans-serif;
+}
+
+/* Für das Diagramm-Canvas (optional, falls du spezifische Stile möchtest) */
+canvas {
+    display: block;
+    margin: 0 auto;
+}
