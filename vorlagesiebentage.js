@@ -30,34 +30,28 @@ async function fetchDataForDate(date) {
     }
 }
 
-// Function to fetch data for the last three days
-async function fetchLastThreeDaysData() {
-    const today = getDateNDaysAgo(0);
-    const yesterday = getDateNDaysAgo(1);
-    const twoDaysAgo = getDateNDaysAgo(2);
-
-    const dataToday = await fetchDataForDate(today);
-    const dataYesterday = await fetchDataForDate(yesterday);
-    const dataTwoDaysAgo = await fetchDataForDate(twoDaysAgo);
-
-    return [dataToday, dataYesterday, dataTwoDaysAgo];
+// Function to fetch data for the last seven days
+async function fetchLastSevenDaysData() {
+    const promises = [];
+    for (let i = 0; i < 7; i++) {
+        const date = getDateNDaysAgo(i);
+        promises.push(fetchDataForDate(date));
+    }
+    const dataArray = await Promise.all(promises);
+    return dataArray;
 }
 
-// Function to calculate the average of three days' data
+// Function to calculate the average of seven days' data
 function calculateAverages(dataArray) {
     const hourlyLabels = getHourlyLabels();
-    const avgTemperatures = Array(24).fill(null);
-    const avgVehiclesInUse = Array(24).fill(null);
-    const avgRain = Array(24).fill(null);
+    const avgTemperatures = Array(24).fill(0);
+    const avgVehiclesInUse = Array(24).fill(0);
+    const avgRain = Array(24).fill(0);
 
+    // Summing up the data for each of the seven days
     dataArray.forEach((data) => {
         data.forEach((item, index) => {
             if (index < 24) {
-                // Initialize arrays if null
-                if (avgTemperatures[index] === null) avgTemperatures[index] = 0;
-                if (avgVehiclesInUse[index] === null) avgVehiclesInUse[index] = 0;
-                if (avgRain[index] === null) avgRain[index] = 0;
-
                 avgTemperatures[index] += item.temperature_2m !== undefined ? item.temperature_2m : 0;
                 const vehiclesAvailable = item.vehicles_available !== undefined ? item.vehicles_available : 0;
                 avgVehiclesInUse[index] += 50 - vehiclesAvailable; // Assuming max 50 Publibikes
@@ -66,11 +60,11 @@ function calculateAverages(dataArray) {
         });
     });
 
-    // Calculate the average by dividing by 3
+    // Calculate the average by dividing by 7
     for (let i = 0; i < 24; i++) {
-        avgTemperatures[i] /= 3;
-        avgVehiclesInUse[i] /= 3;
-        avgRain[i] /= 3;
+        avgTemperatures[i] /= 7;
+        avgVehiclesInUse[i] /= 7;
+        avgRain[i] /= 7;
     }
 
     return { hourlyLabels, avgTemperatures, avgVehiclesInUse, avgRain };
@@ -78,7 +72,7 @@ function calculateAverages(dataArray) {
 
 // Function to initialize the chart
 async function initChart() {
-    const dataArray = await fetchLastThreeDaysData();
+    const dataArray = await fetchLastSevenDaysData();
     const { hourlyLabels, avgTemperatures, avgVehiclesInUse, avgRain } = calculateAverages(dataArray);
 
     // Create chart

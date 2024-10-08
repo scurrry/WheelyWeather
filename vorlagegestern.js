@@ -78,7 +78,7 @@ async function initChart() {
             labels: hourlyLabels, // X-axis labels (0-23 hours)
             datasets: [
                 {
-                    label: 'Temperatur (°C)',
+                    label: 'Temperature (°C)',
                     data: temperatures, // Temperature data
                     borderColor: '#FE4B01', // Orange for temperature
                     backgroundColor: 'rgba(254, 75, 1, 0.2)', // Lighter orange
@@ -86,7 +86,7 @@ async function initChart() {
                     yAxisID: 'tempY', // Separate Y-axis for temperature on the left
                 },
                 {
-                    label: 'Regen (mm)',
+                    label: 'Rain (mm)',
                     data: rainData, // Rain data
                     borderColor: '#FBB108', // Yellow for rain
                     backgroundColor: 'rgba(251, 177, 8, 0.2)',
@@ -94,7 +94,7 @@ async function initChart() {
                     yAxisID: 'rainY', // Separate Y-axis for rain on the left
                 },
                 {
-                    label: 'Benutzte Fahrzeuge',
+                    label: 'Used Publibikes',
                     data: vehiclesInUse, // Used vehicles (Benutzte Fahrzeuge)
                     borderColor: '#FF9B9E', // Pink for used vehicles
                     backgroundColor: 'rgba(255, 155, 158, 0.2)',
@@ -116,7 +116,7 @@ async function initChart() {
                     position: 'left',
                     title: {
                         display: true,
-                        text: 'Temperatur (°C)'
+                        text: 'Temperature (°C)'
                     },
                     min: 0,  // Minimum temperature
                     max: maxTemperature,  // Set maximum dynamically based on the data
@@ -130,7 +130,7 @@ async function initChart() {
                     position: 'left', // Also on the left
                     title: {
                         display: true,
-                        text: 'Regen (mm)'
+                        text: 'Rain (mm)'
                     },
                     min: 0,  // Minimum rain
                     max: maxRain,  // Set maximum dynamically based on the data
@@ -147,7 +147,7 @@ async function initChart() {
                     position: 'right', // Right Y-axis for used vehicles
                     title: {
                         display: true,
-                        text: 'Benutzte Fahrzeuge'
+                        text: 'Used Publibikes'
                     },
                     min: 0,  // Minimum used vehicles
                     max: maxVehiclesInUse,  // Set maximum dynamically based on the data
