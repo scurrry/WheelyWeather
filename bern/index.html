@@ -19,32 +19,35 @@
 
     <nav id="nav-menu" class="hidden">
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../aboutus/index.html">About us</a></li>
             <li><a href="#">Bern</a></li>
-            <li><a href="#">Zürich</a></li>
-            <li><a href="#">Basel</a></li>
-            <li><a href="#">Lugano</a></li>
-            <li><a href="#">Geneva</a></li>
-            <li><a href="#">Lausanne</a></li>
+            <li><a href="../zurich/index.html">Zürich</a></li>
+            <li><a href="../lugano/index.html">Lugano</a></li>
+            <li><a href="../lausanne/index.html">Lausanne</a></li>
         </ul>
     </nav>
 
     <main>
         <!-- Existing Bern Section -->
-        <section class="bern-section">
-            <div class="bern-details">
-                <h1>Bern</h1>
-                <p class="info"><strong>Sunshine:</strong> 6 hours</p>
-                <p class="info"><strong>Weather:</strong> rainy</p>
-                <p class="info"><strong>Temperature:</strong> 18°C</p>
-                <p class="info"><strong>Number of Bikes available:</strong> XY</p>
-            </div>
-            <div class="map-container">
-                <img src="path/to/switzerland-map.png" alt="Map of Switzerland with Bern" class="map-image">
-                <div class="location-pin">321</div>
-            </div>
-        </section>
+        <main>
+            <!-- Existing Bern Section -->
+            <section class="bern-section">
+                <div class="bern-details">
+                    <h1>Bern</h1>
+                    <p class="info"><strong>Sunshine:</strong> 6 hours</p>
+                    <p class="info"><strong>Weather:</strong> rainy</p>
+                    <p class="info"><strong>Temperature:</strong> 18°C</p>
+                    <p class="info"><strong>Number of Bikes available:</strong> XY</p>
+                </div>
+        
+                <!-- Adding the pink map of Switzerland -->
+                <div class="bern-image-container">
+                    <img src="../images/schweiz_rosa.png" alt="Pink map of Switzerland" class="bern-image">
+                </div>
+            </section>
+        </main>
+        
 
         <!-- New Section for Statistics -->
         <section class="statistics-section">
@@ -55,6 +58,27 @@
             </div>
         </section>
     </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-column">
+            <h3><a href="../index.html" class="footer-link">Home</a></h3> <!-- Link auf Home mit orangefarbenem Stil -->
+            <h3><a href="../aboutus/index.html" class="footer-link">About us</a></h3> <!-- Link auf About us mit orangefarbenem Stil -->
+        </div>
+        <div class="footer-column">
+            <ul class="city-list">
+                <li><a href="../bern/index.html">Bern</a></li>
+                <li><a href="../zurich/index.html">Zürich</a></li>
+                <li><a href="../lugano/index.html">Lugano</a></li>
+                <li><a href="../lausanne/index.html">Lausanne</a></li>
+            </ul>
+        </div>
+        <div class="footer-column contact">
+            <h3>Contact</h3>
+            <p>selina.dostilio@stud.fhgr.ch</p>
+            <p>laura.khoury@stud.fhgr.ch</p>
+        </div>
+    </footer>
 
     <script>
         function toggleMenu() {

@@ -94,6 +94,21 @@ header {
     background-color: var(--color-beige);
 }
 
+/* Styling the container for the image */
+.bern-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+}
+
+/* Styling the image itself */
+.bern-image {
+    max-width: 100%;
+    height: auto;
+}
+
+
 .bern-details {
     max-width: 300px;
 }
@@ -165,4 +180,71 @@ header {
 .statistics-box p {
     font-size: 1.5rem;
     color: var(--color-orange);
+}
+
+/* Footer styling */
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 100px;
+    background-color: var(--color-beige);
+    align-items: center;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-column h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Link Style für Home und About Us in Orange */
+.footer-link {
+    text-decoration: none;
+    color: var(--color-orange);
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.city-list {
+    font-size: 2.5rem;
+    color: var(--color-yellow);
+}
+
+.city-list li {
+    margin-bottom: 20px;
+}
+
+.city-list li a {
+    text-decoration: none;
+    color: var(--color-yellow);
+}
+
+.city-list li a:hover {
+    text-decoration: underline;
+}
+
+.contact {
+    text-align: right;
+}
+
+.contact h3 {
+    font-size: 2.5rem;
+    color: var(--color-pink);
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 1.5rem;
+    color: var(--color-pink);
+    margin-bottom: 10px;
 }
