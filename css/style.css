@@ -18,6 +18,13 @@ body {
     background-color: var(--color-beige);
 }
 
+/* Custom font class */
+.protest-strike-regular {
+    font-family: "Protest Strike", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 /* Header styling */
 header {
     display: flex;
@@ -92,6 +99,16 @@ header {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    position: relative;
+}
+
+.section-beige {
+    background-color: var(--color-beige);
+    position: relative;
+    background-image: url('images/velos.png'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
 }
 
 .main-title {
@@ -100,12 +117,24 @@ header {
     text-align: center;
     font-weight: bold;
     margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.section-beige {
-    background-color: var(--color-beige);
+/* Section for smaller screens */
+@media screen and (max-width: 768px) {
+    .main-title {
+        font-size: 5rem; /* Smaller font size for mobile */
+    }
+
+    .section-beige {
+        height: 50vh; /* Adjust height for mobile */
+    }
 }
 
+/* Section-yellow styling */
 .section-yellow {
     background-color: var(--color-yellow);
     display: flex;
@@ -139,20 +168,12 @@ header {
     padding-left: 100px;
 }
 
-/* Title und Bild Styling */
-.city-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 50px;
-}
-
 .pink-title {
     font-size: 5rem;
     color: var(--color-orange);
     text-align: left;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-right: 50px;
 }
 
 .city-list {
@@ -163,22 +184,6 @@ header {
 
 .city-list li {
     margin-bottom: 20px;
-}
-
-/* Links in der Stadtliste */
-.city-list li a {
-    text-decoration: none;
-    color: var(--color-yellow);
-}
-
-.city-list li a:hover {
-    text-decoration: underline;
-}
-
-/* Styling für die Schweiz-Karte */
-.swiss-map {
-    max-width: 400px;
-    height: auto;
 }
 
 /* Footer styling */
@@ -187,34 +192,29 @@ footer {
     justify-content: space-between;
     padding: 50px 100px;
     background-color: var(--color-beige);
-    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .footer-column {
     display: flex;
     flex-direction: column;
-}
-
-.footer-column h3 {
-    font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
-/* Link Style für Home und About Us in Orange */
-.footer-link {
-    text-decoration: none;
+.footer-column h3 a {
+    font-size: 2.5rem;
     color: var(--color-orange);
+    text-decoration: none;
+    margin-bottom: 20px;
 }
 
-.footer-link:hover {
+.footer-column h3 a:hover {
     text-decoration: underline;
 }
 
-.footer-column ul {
-    list-style: none;
-}
-
 .city-list {
+    list-style: none;
     font-size: 2.5rem;
     color: var(--color-yellow);
 }
@@ -232,10 +232,7 @@ footer {
     text-decoration: underline;
 }
 
-.contact {
-    text-align: right;
-}
-
+/* Contact column styling */
 .contact h3 {
     font-size: 2.5rem;
     color: var(--color-pink);
@@ -244,6 +241,32 @@ footer {
 
 .contact p {
     font-size: 1.5rem;
-    color: var(--color-light-pink);
+    color: var(--color-pink);
     margin-bottom: 10px;
+}
+
+/* Responsive footer adjustments */
+@media screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        padding: 20px;
+        align-items: left;
+        text-align: left;
+    }
+
+    .footer-column {
+        margin-bottom: 40px;
+    }
+
+    .city-list {
+        font-size: 2rem;
+    }
+
+    .footer-column h3 a {
+        font-size: 2rem;
+    }
+
+    .contact p {
+        font-size: 1.2rem;
+    }
 }

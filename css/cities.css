@@ -6,6 +6,7 @@
     --color-yellow: #FBB108;
 }
 
+/* General styles */
 * {
     margin: 0;
     padding: 0;
@@ -13,8 +14,15 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Protest Strike", sans-serif;
     background-color: var(--color-beige);
+}
+
+/* Custom font class */
+.protest-strike-regular {
+    font-family: "Protest Strike", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 /* Header Styling */
@@ -140,45 +148,44 @@ header {
     text-align: center;
 }
 
-/* Footer Styling */
+/* Footer styling */
 footer {
     display: flex;
     justify-content: space-between;
     padding: 50px 100px;
     background-color: var(--color-beige);
-    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Ensure responsive wrapping */
 }
 
 .footer-column {
     display: flex;
     flex-direction: column;
-}
-
-.footer-column h3 {
-    font-size: 2.5rem;
     margin-bottom: 20px;
+    gap: 40px; /* Increased gap between items in each column */
 }
 
-.footer-link {
-    text-decoration: none;
+.footer-column h3 a {
+    list-style: none;
+    font-size: 2.5rem;
     color: var(--color-orange);
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /
 }
 
-.footer-link:hover {
+.footer-column h3 a:hover {
     text-decoration: underline;
 }
 
-.footer-column ul {
-    list-style: none;
-}
-
+/* City list styling */
 .city-list {
+    list-style: none;
     font-size: 2.5rem;
     color: var(--color-yellow);
-}
-
-.city-list li {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .city-list li a {
@@ -190,6 +197,7 @@ footer {
     text-decoration: underline;
 }
 
+/* Contact column styling */
 .contact h3 {
     font-size: 2.5rem;
     color: var(--color-pink);
@@ -198,6 +206,33 @@ footer {
 
 .contact p {
     font-size: 1.5rem;
-    color: var(--color-light-pink);
+    color: var(--color-pink);
     margin-bottom: 10px;
+}
+
+/* Responsive footer adjustments */
+@media screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        padding: 20px;
+        align-items: left;
+        text-align: left;
+    }
+
+    .footer-column {
+        margin-bottom: 40px;
+    }
+
+    .city-list {
+        font-size: 2rem;
+        gap: 30px; /* Adjust the gap for smaller screens */
+    }
+
+    .footer-column h3 a {
+        font-size: 2rem;
+    }
+
+    .contact p {
+        font-size: 1.2rem;
+    }
 }
