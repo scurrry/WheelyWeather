@@ -25,7 +25,7 @@ body {
     font-style: normal;
 }
 
-/* Header Styling */
+/* Header styling */
 header {
     display: flex;
     justify-content: space-between;
@@ -39,30 +39,41 @@ header {
     font-size: 24px;
     font-weight: bold;
     color: var(--color-beige);
+    text-decoration: none; /* Link styling */
 }
 
 .burger-menu {
-    position: absolute;
-    right: 20px;
+    display: none;
+    font-size: 30px;
+    color: var(--color-beige);
+    background: none;
+    border: none;
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
 }
 
-.burger-menu .bar {
-    height: 3px;
-    background-color: var(--color-light-pink);
-    border-radius: 5px;
+/* Navigation styling for cities */
+.city-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.city-nav a {
+    text-decoration: none;
+    color: var(--color-orange); /* Orange as default color */
+    font-size: 1.5rem;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.city-nav a:hover {
+    color: var(--color-yellow); /* Change to yellow on hover */
 }
 
 /* Bern Section Styling */
 .bern-section {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: 50px;
     background-color: var(--color-beige);
 }
@@ -72,15 +83,22 @@ header {
 }
 
 .bern-details h1 {
-    font-size: 6rem;
+    font-size: 6rem; /* Titel bleibt groß und orange */
     color: var(--color-orange);
     margin-bottom: 20px;
 }
 
-.info {
-    font-size: 1.8rem;
+/* New Label and Value Styling */
+.label {
+    font-size: 2rem;
+    color: var(--color-pink);
+    margin-bottom: 5px;
+}
+
+.value {
+    font-size: 2rem;
     color: var(--color-orange);
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .bern-image-container {
@@ -155,27 +173,26 @@ footer {
     padding: 50px 100px;
     background-color: var(--color-beige);
     align-items: flex-start;
-    flex-wrap: wrap; /* Ensure responsive wrapping */
+    flex-wrap: wrap;
 }
 
 .footer-column {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    gap: 40px; /* Increased gap between items in each column */
+    gap: 15px;
 }
 
+/* Home & About Us Links */
 .footer-column h3 a {
-    list-style: none;
     font-size: 2.5rem;
-    color: var(--color-orange);
-    display: flex;
-    flex-direction: column;
-    gap: 40px; /
+    color: var(--color-yellow);
+    text-decoration: none;
+    margin-bottom: 15px;
 }
 
 .footer-column h3 a:hover {
-    text-decoration: underline;
+    color: var(--color-orange); /* Change to orange on hover */
 }
 
 /* City list styling */
@@ -183,31 +200,33 @@ footer {
     list-style: none;
     font-size: 2.5rem;
     color: var(--color-yellow);
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+}
+
+.city-list li {
+    margin-bottom: 15px;
 }
 
 .city-list li a {
     text-decoration: none;
-    color: var(--color-yellow);
+    color: var(--color-orange);
+    transition: color 0.3s ease;
 }
 
 .city-list li a:hover {
-    text-decoration: underline;
+    color: var(--color-yellow); /* Change to yellow on hover */
 }
 
 /* Contact column styling */
 .contact h3 {
     font-size: 2.5rem;
     color: var(--color-pink);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .contact p {
     font-size: 1.5rem;
     color: var(--color-pink);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 /* Responsive footer adjustments */
@@ -223,16 +242,39 @@ footer {
         margin-bottom: 40px;
     }
 
-    .city-list {
-        font-size: 2rem;
-        gap: 30px; /* Adjust the gap for smaller screens */
-    }
-
-    .footer-column h3 a {
-        font-size: 2rem;
+    .footer-link {
+        font-size: 1.5rem;
     }
 
     .contact p {
         font-size: 1.2rem;
+    }
+}
+
+/* Responsive header */
+@media screen and (max-width: 768px) {
+    .city-nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 15px;
+        background-color: var(--color-pink);
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 10;
+    }
+
+    /* Show the nav when active */
+    .city-nav ul.active {
+        display: flex;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+
+    .logo {
+        font-size: 20px;
     }
 }

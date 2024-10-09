@@ -1,9 +1,9 @@
 :root {
     --color-beige: #F2E2C9;
-    --color-yellow: #FBB108;
-    --color-orange: #FE4B01;
     --color-pink: #FF9B9E;
+    --color-orange: #FE4B01;
     --color-light-pink: #ffb0c1;
+    --color-yellow: #FBB108;
 }
 
 /* General styles */
@@ -14,8 +14,15 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Protest Strike", sans-serif;
     background-color: var(--color-beige);
+}
+
+/* Custom font class */
+.protest-strike-regular {
+    font-family: "Protest Strike", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 /* Header styling */
@@ -32,130 +39,92 @@ header {
     font-size: 24px;
     font-weight: bold;
     color: var(--color-beige);
-}
-
-/* Burger menu styling */
-.burger-menu {
-    position: absolute;
-    right: 20px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-}
-
-.burger-menu .bar {
-    height: 3px;
-    background-color: var(--color-yellow);
-    border-radius: 5px;
-}
-
-/* Navigation menu styling */
-#nav-menu {
-    display: none; /* Standardmäßig ausgeblendet */
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: var(--color-pink);
-    padding: 15px;
-    border-radius: 5px;
-    width: 200px;
-}
-
-#nav-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#nav-menu li {
-    margin-bottom: 10px;
-}
-
-#nav-menu a {
     text-decoration: none;
+}
+
+.burger-menu {
+    display: none;
+    font-size: 30px;
     color: var(--color-beige);
-    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.hidden {
-    display: flex;
-}
-
-/* Section styling */
-.section {
-    height: 1024px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.main-title {
-    font-size: 10rem;
-    color: var(--color-orange);
-    text-align: center;
-    font-weight: bold;
-    margin: 0;
-}
-
-.section-beige {
-    background-color: var(--color-beige);
-}
-
-.section-yellow {
-    background-color: var(--color-yellow);
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-left: 100px;
-    padding-top: 50px;
-}
-
-.yellow-title {
-    font-size: 5rem;
-    color: var(--color-orange);
-    text-align: left;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.yellow-text {
-    font-size: 24px;
-    color: var(--color-orange);
-    text-align: left;
-    max-width: 600px;
-    line-height: 1.6;
-}
-
-.section-pink {
-    background-color: var(--color-pink);
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 100px;
-}
-
-.pink-title {
-    font-size: 5rem;
-    color: var(--color-orange);
-    text-align: left;
-    font-weight: bold;
-    margin-right: 50px;
-}
-
-.city-list {
+/* Navigation styling for cities */
+.city-nav ul {
     list-style: none;
-    font-size: 2.5rem;
+    display: flex;
+    gap: 20px;
+}
+
+.city-nav a {
+    text-decoration: none;
+    color: var(--color-orange);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.city-nav a:hover {
     color: var(--color-yellow);
 }
 
-.city-list li {
+/* About Us Section */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background-color: var(--color-beige);
+}
+
+.about-content {
+    max-width: 800px;
+    text-align: center;
+}
+
+.about-content h1 {
+    font-size: 4rem;
+    color: var(--color-orange);
     margin-bottom: 20px;
+}
+
+.about-content p {
+    font-size: 1.8rem;
+    color: var(--color-orange);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Team section with two columns */
+.team-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.team-member {
+    flex: 1;
+    text-align: center;
+}
+
+.team-photo {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.team-member h2 {
+    font-size: 2.5rem;
+    color: var(--color-pink);
+    margin-bottom: 10px;
+}
+
+.team-member .description {
+    font-size: 1.6rem;
+    color: var(--color-orange);
 }
 
 /* Footer styling */
@@ -164,45 +133,122 @@ footer {
     justify-content: space-between;
     padding: 50px 100px;
     background-color: var(--color-beige);
-    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .footer-column {
     display: flex;
     flex-direction: column;
-}
-
-.footer-column h3 {
-    font-size: 2.5rem;
-    color: var(--color-orange);
     margin-bottom: 20px;
+    gap: 15px;
 }
 
-.footer-column ul {
-    list-style: none;
+.footer-column h3 a {
+    font-size: 2.5rem;
+    color: var(--color-yellow);
+    text-decoration: none;
 }
 
+.footer-column h3 a:hover {
+    color: var(--color-orange);
+}
+
+/* City list styling */
 .city-list {
+    list-style: none;
     font-size: 2.5rem;
     color: var(--color-yellow);
 }
 
 .city-list li {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.contact {
-    text-align: right;
+.city-list li a {
+    text-decoration: none;
+    color: var(--color-orange);
+    transition: color 0.3s ease;
 }
 
+.city-list li a:hover {
+    color: var(--color-yellow);
+}
+
+/* Contact column styling */
 .contact h3 {
     font-size: 2.5rem;
     color: var(--color-pink);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .contact p {
     font-size: 1.5rem;
-    color: var(--color-light-pink);
-    margin-bottom: 10px;
+    color: var(--color-pink);
+    margin-bottom: 15px;
+}
+
+/* Responsive adjustments for team section */
+@media screen and (max-width: 768px) {
+    .team-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .team-member {
+        margin-bottom: 40px;
+    }
+
+    .footer-column {
+        margin-bottom: 40px;
+    }
+}
+
+/* Responsive footer adjustments */
+@media screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        padding: 20px;
+        align-items: left;
+        text-align: left;
+    }
+
+    .footer-column {
+        margin-bottom: 40px;
+    }
+
+    .footer-link {
+        font-size: 1.5rem;
+    }
+
+    .contact p {
+        font-size: 1.2rem;
+    }
+}
+
+/* Responsive header */
+@media screen and (max-width: 768px) {
+    .city-nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 15px;
+        background-color: var(--color-pink);
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 10;
+    }
+
+    .city-nav ul.active {
+        display: flex;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
 }

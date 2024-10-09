@@ -3,9 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Wheely Weather - About Us</title>
+    <link rel="stylesheet" href="../css/aboutus.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
 </head>
-<body>
-    
+<body class="protest-strike-regular">
+    <!-- Header with burger menu -->
+    <header class="protest-strike-regular">
+        <a href="../index.html" class="logo">Wheely Weather</a>
+        <button class="burger-menu" onclick="toggleMenu()">
+            &#9776;
+        </button>
+        <nav class="city-nav">
+            <ul id="nav-list">
+                <li><a href="../bern/index.html">Bern</a></li>
+                <li><a href="../zurich/index.html">Zürich</a></li>
+                <li><a href="../lugano/index.html">Lugano</a></li>
+                <li><a href="../lausanne/index.html">Lausanne</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content for the About Us page -->
+    <main>
+        <section class="about-section">
+            <div class="about-content">
+                <h1>About Us</h1>
+                <p class="intro">
+                    Welcome to Wheely Weather! Meet our passionate team of weather and bike enthusiasts.
+                </p>
+                
+                <!-- Team section with two columns -->
+                <div class="team-section">
+                    <!-- Column for Selina -->
+                    <div class="team-member">
+                        <img src="../images/bild_selina.png" alt="Selina D'Ostilio" class="team-photo">
+                        <h2>Selina D'Ostilio</h2>
+                        <p class="description">
+                            Selina, 21 Jahre alt aus Zürich, ist leidenschaftliche Publibike-Nutzerin. Für sie ist das Fahrrad das perfekte Mittel, um sich schnell und flexibel in der Stadt zu bewegen, während sie gleichzeitig etwas für die Umwelt tut. Mit Publibike kann sie ihre täglichen Wege unkompliziert und nachhaltig gestalten.
+                        </p>
+                    </div>
+                    
+                    <!-- Column for Laura -->
+                    <div class="team-member">
+                        <img src="../images/bild_laura.png" alt="Laura Khoury" class="team-photo">
+                        <h2>Laura Khoury</h2>
+                        <p class="description">
+                            Laura ist begeisterte Radfahrerin und nutzt seit Jahren regelmässig Publibike, um umweltfreundlich und aktiv durch die Stadt zu kommen. Sie schätzt besonders die Flexibilität und die Möglichkeit, die Stadt auf nachhaltige Weise zu erkunden.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="protest-strike-regular">
+        <div class="footer-column">
+            <h3><a href="../index.html" class="footer-link">Home</a></h3>
+            <h3><a href="../aboutus/index.html" class="footer-link">About us</a></h3>
+        </div>
+        <div class="footer-column">
+            <ul class="city-list">
+                <li><a href="../bern/index.html">Bern</a></li>
+                <li><a href="../zurich/index.html">Zurich</a></li>
+                <li><a href="../lugano/index.html">Lugano</a></li>
+                <li><a href="../lausanne/index.html">Lausanne</a></li>
+            </ul>
+        </div>
+        <div class="footer-column contact">
+            <h3>Contact</h3>
+            <p>selina.dostilio@stud.fhgr.ch</p>
+            <p>laura.khoury@stud.fhgr.ch</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Burger Menu -->
+    <script>
+        function toggleMenu() {
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

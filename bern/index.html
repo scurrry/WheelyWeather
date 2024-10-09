@@ -12,33 +12,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
 </head>
 <body class="protest-strike-regular">
-    <header>
-        <div class="logo">WheelyWeather</div>
-        <div class="burger-menu" onclick="toggleMenu()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
+    <header class="protest-strike-regular">
+        <a href="../index.html" class="logo">Wheely Weather</a> <!-- Link zur Home-Seite -->
+        <!-- Burger menu button -->
+        <button class="burger-menu" onclick="toggleMenu()">
+            &#9776;
+        </button>
+        <nav class="city-nav">
+            <ul id="nav-list">
+                <li><a href="../bern/index.html">Bern</a></li>
+                <li><a href="../zurich/index.html">Zürich</a></li>
+                <li><a href="../lugano/index.html">Lugano</a></li>
+                <li><a href="../lausanne/index.html">Lausanne</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <!-- Existing Bern Section -->
+        <!-- Bern Section -->
         <section class="bern-section">
             <div class="bern-details">
-                <h1>Bern</h1>
-                <p class="info"><strong>Sunshine:</strong> 6 hours</p>
-                <p class="info"><strong>Weather:</strong> rainy</p>
-                <p class="info"><strong>Temperature:</strong> 18°C</p>
-                <p class="info"><strong>Number of Bikes available:</strong> XY</p>
+                <h1>Bern</h1> <!-- Stadtname bleibt gleich groß und orange -->
+                <p class="label">Sunshine:</p>
+                <p class="value">6 hours</p>
+                <p class="label">Weather:</p>
+                <p class="value">rainy</p>
+                <p class="label">Temperature:</p>
+                <p class="value">18°C</p>
+                <p class="label">Number of Bikes available:</p>
+                <p class="value">XY</p>
             </div>
 
-            <!-- Adding the pink map of Switzerland -->
+            <!-- Pink map of Switzerland -->
             <div class="bern-image-container">
                 <img src="../images/schweiz_rosa.png" alt="Pink map of Switzerland" class="bern-image">
             </div>
         </section>
 
-        <!-- New Section for Statistics -->
+        <!-- Statistics Section -->
         <section class="statistics-section">
             <h2 class="statistics-title">Bike & Weather Statistics</h2>
 
@@ -52,7 +63,7 @@
             <!-- Statistics Box -->
             <div class="statistics-box">
                 <canvas id="wheelyWeatherChart" width="400" height="200"></canvas>
-                <!-- This is where you will dynamically insert statistics data -->
+                <!-- Statistics data will be dynamically inserted here -->
             </div>
         </section>
     </main>
@@ -67,9 +78,7 @@
             <ul class="city-list">
                 <li><a href="../bern/index.html">Bern</a></li>
                 <li><a href="../zurich/index.html">Zurich</a></li>
-                <li><a href="../basel/index.html">Basel</a></li>
                 <li><a href="../lugano/index.html">Lugano</a></li>
-                <li><a href="../geneva/index.html">Geneva</a></li>
                 <li><a href="../lausanne/index.html">Lausanne</a></li>
             </ul>
         </div>
@@ -82,8 +91,8 @@
 
     <script>
         function toggleMenu() {
-            const menu = document.getElementById('nav-menu');
-            menu.classList.toggle('hidden');
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('active');
         }
     </script>
     <script src="bern.js"></script>

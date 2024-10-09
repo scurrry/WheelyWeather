@@ -43,53 +43,30 @@ header {
 
 /* Burger menu styling */
 .burger-menu {
-    position: absolute;
-    right: 20px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-}
-
-.burger-menu .bar {
-    height: 3px;
-    background-color: var(--color-yellow);
-    border-radius: 5px;
-}
-
-/* Navigation menu styling */
-#nav-menu {
     display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: var(--color-pink);
-    padding: 15px;
-    border-radius: 5px;
-    width: 200px;
-}
-
-#nav-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#nav-menu li {
-    margin-bottom: 10px;
-}
-
-#nav-menu a {
-    text-decoration: none;
+    font-size: 30px;
     color: var(--color-beige);
-    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.hidden {
+/* Navigation styling for cities */
+.city-nav ul {
+    list-style: none;
     display: flex;
+    gap: 20px;
+}
+
+.city-nav a {
+    text-decoration: none;
+    color: var(--color-orange); /* Orange as default color */
+    font-size: 1.5rem;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.city-nav a:hover {
+    color: var(--color-yellow); /* Change to yellow on hover */
 }
 
 /* Section styling */
@@ -160,6 +137,7 @@ header {
     line-height: 1.6;
 }
 
+/* "Discover Your City" section */
 .section-pink {
     background-color: var(--color-pink);
     display: flex;
@@ -179,11 +157,21 @@ header {
 .city-list {
     list-style: none;
     font-size: 2.5rem;
-    color: var(--color-yellow);
+    color: var(--color-beige); /* Default color is beige */
 }
 
 .city-list li {
     margin-bottom: 20px;
+}
+
+.city-list li a {
+    text-decoration: none;
+    color: var(--color-beige); /* Default beige */
+    transition: color 0.3s ease;
+}
+
+.city-list li a:hover {
+    color: var(--color-yellow); /* Change to yellow on hover */
 }
 
 /* Footer styling */
@@ -200,49 +188,53 @@ footer {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+    gap: 15px; /* Einheitliche Abstände zwischen den Elementen */
 }
 
+/* Home & About Us Links */
 .footer-column h3 a {
     font-size: 2.5rem;
-    color: var(--color-orange);
+    color: var(--color-yellow);
     text-decoration: none;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Anpassung für Konsistenz */
 }
 
 .footer-column h3 a:hover {
-    text-decoration: underline;
+    color: var(--color-orange); /* Change to orange on hover */
 }
 
+/* City list styling */
 .city-list {
     list-style: none;
     font-size: 2.5rem;
-    color: var(--color-yellow);
+    color: var(--color-yellow); /* Default color is yellow */
 }
 
 .city-list li {
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Einheitlicher Abstand */
 }
 
 .city-list li a {
     text-decoration: none;
-    color: var(--color-yellow);
+    color: var(--color-orange); /* Default orange */
+    transition: color 0.3s ease;
 }
 
 .city-list li a:hover {
-    text-decoration: underline;
+    color: var(--color-yellow); /* Change to yellow on hover */
 }
 
 /* Contact column styling */
 .contact h3 {
     font-size: 2.5rem;
     color: var(--color-pink);
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Anpassung für Konsistenz */
 }
 
 .contact p {
     font-size: 1.5rem;
     color: var(--color-pink);
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Einheitlicher Abstand */
 }
 
 /* Responsive footer adjustments */
@@ -250,7 +242,6 @@ footer {
     footer {
         flex-direction: column;
         padding: 20px;
-        align-items: left;
         text-align: left;
     }
 
@@ -258,15 +249,39 @@ footer {
         margin-bottom: 40px;
     }
 
-    .city-list {
-        font-size: 2rem;
-    }
-
-    .footer-column h3 a {
-        font-size: 2rem;
+    .footer-link {
+        font-size: 1.5rem;
     }
 
     .contact p {
         font-size: 1.2rem;
+    }
+}
+
+/* Responsive header */
+@media screen and (max-width: 768px) {
+    .city-nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 15px;
+        background-color: var(--color-pink);
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 10;
+    }
+
+    /* Show the nav when active */
+    .city-nav ul.active {
+        display: flex;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+
+    .logo {
+        font-size: 20px;
     }
 }

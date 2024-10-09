@@ -10,25 +10,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="logo protest-strike-regular">Wheely Weather</div>
-        <div class="burger-menu" onclick="toggleMenu()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
+    <header class="protest-strike-regular">
+        <div class="logo">Wheely Weather</div>
+        <!-- Burger menu button -->
+        <button class="burger-menu" onclick="toggleMenu()">
+            &#9776;
+        </button>
+        <nav class="city-nav">
+            <ul id="nav-list">
+                <li><a href="bern/index.html">Bern</a></li>
+                <li><a href="zurich/index.html">Zürich</a></li>
+                <li><a href="lugano/index.html">Lugano</a></li>
+                <li><a href="lausanne/index.html">Lausanne</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <nav id="nav-menu" class="hidden">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="aboutus/index.html">About us</a></li>
-            <li><a href="bern/index.html">Bern</a></li>
-            <li><a href="zurich/index.html">Zürich</a></li>
-            <li><a href="lugano/index.html">Lugano</a></li>
-            <li><a href="lausanne/index.html">Lausanne</a></li>
-        </ul>
-    </nav>
 
     <main>
         <!-- Erste Sektion mit beige Hintergrund und dem Titel -->
@@ -73,9 +69,7 @@
             <ul class="city-list">
                 <li><a href="bern/index.html">Bern</a></li>
                 <li><a href="zurich/index.html">Zurich</a></li>
-                <li><a href="basel/index.html">Basel</a></li>
                 <li><a href="lugano/index.html">Lugano</a></li>
-                <li><a href="geneva/index.html">Geneva</a></li>
                 <li><a href="lausanne/index.html">Lausanne</a></li>
             </ul>
         </div>
@@ -86,10 +80,11 @@
         </div>
     </footer>
 
+    <!-- JavaScript for Burger Menu -->
     <script>
         function toggleMenu() {
-            const menu = document.getElementById('nav-menu');
-            menu.classList.toggle('hidden');
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('active');
         }
     </script>
 </body>
