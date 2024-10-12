@@ -98,7 +98,6 @@ header {
     }
 }
 
-
 /* Section styling */
 main {
     width: 100vw; /* Full width for main content */
@@ -136,7 +135,6 @@ main {
     transform: translate(-50%, -50%);
 }
 
-/* Section for smaller screens */
 @media screen and (max-width: 768px) {
     .main-title {
         font-size: 4rem; /* Smaller font size for mobile */
@@ -158,6 +156,18 @@ main {
     width: 100vw; /* Full width */
 }
 
+.text-image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px; /* Space between text and image */
+}
+
+.responsive-image {
+    max-width: 40%; /* Make sure the image never takes more than 50% of the width */
+    height: auto; /* Maintain aspect ratio */
+}
+
 .yellow-title {
     font-size: 5rem;
     color: var(--color-orange);
@@ -174,7 +184,6 @@ main {
     line-height: 1.6;
 }
 
-/* Responsive Section-yellow */
 @media screen and (max-width: 768px) {
     .section-yellow {
         flex-direction: column; /* Align content in a column */
@@ -192,6 +201,15 @@ main {
         font-size: 1.2rem;
         text-align: left; /* Ensure text is left-aligned */
         margin-bottom: 20px;
+    }
+
+    .text-image-container {
+        flex-direction: column; /* Stack text and image */
+    }
+
+    .responsive-image {
+        max-width: 70%; /* Full width on smaller screens */
+        margin-top: 20px; /* Spacing between text and image */
     }
 }
 
