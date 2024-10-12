@@ -2,7 +2,6 @@
     --color-beige: #F2E2C9;
     --color-pink: #FF9B9E;
     --color-orange: #FE4B01;
-    --color-light-pink: #ffb0c1;
     --color-yellow: #FBB108;
 }
 
@@ -122,8 +121,17 @@ header {
     margin-bottom: 10px;
 }
 
-.team-member .description {
-    font-size: 1.6rem;
+.yellow-text {
+    font-size: 1.2rem;
+    color: var(--color-orange);
+    line-height: 1.6;
+}
+
+.team-description {
+    max-width: 600px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 1.6;
     color: var(--color-orange);
 }
 

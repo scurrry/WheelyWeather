@@ -33,6 +33,7 @@ header {
     padding: 15px;
     background-color: var(--color-pink);
     position: relative;
+    width: 100vw; /* Full width */
 }
 
 .logo {
@@ -69,29 +70,58 @@ header {
     color: var(--color-yellow); /* Change to yellow on hover */
 }
 
+@media screen and (max-width: 768px) {
+    .burger-menu {
+        display: block;
+    }
+
+    .city-nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 15px;
+        background-color: var(--color-pink);
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 10;
+        width: 100vw; /* Full width */
+    }
+
+    .city-nav ul.active {
+        display: flex;
+    }
+}
+
 /* Section styling */
+main {
+    width: 100vw; /* Full width for main content */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
 .section {
-    width: 100%;
+    width: 100vw; /* Ensure full width of viewport */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
     position: relative;
+    margin: 0; /* Remove default margin */
 }
 
 .section-beige {
     background-color: var(--color-beige);
-    position: relative;
     background-image: url('images/velos.png'); 
     background-size: cover;
     background-position: center;
     height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full width */
 }
 
 .main-title {
     font-size: 10rem;
     color: var(--color-orange);
-    text-align: center;
+    text-align: center; /* Keep title centered */
     font-weight: bold;
     margin: 0;
     position: absolute;
@@ -103,7 +133,7 @@ header {
 /* Section for smaller screens */
 @media screen and (max-width: 768px) {
     .main-title {
-        font-size: 5rem; /* Smaller font size for mobile */
+        font-size: 4rem; /* Smaller font size for mobile */
     }
 
     .section-beige {
@@ -119,12 +149,13 @@ header {
     align-items: flex-start;
     padding-left: 100px;
     padding-top: 50px;
+    width: 100vw; /* Full width */
 }
 
 .yellow-title {
     font-size: 5rem;
     color: var(--color-orange);
-    text-align: left;
+    text-align: left; /* Align text to the left */
     font-weight: bold;
     margin-bottom: 20px;
 }
@@ -132,9 +163,30 @@ header {
 .yellow-text {
     font-size: 24px;
     color: var(--color-orange);
-    text-align: left;
+    text-align: left; /* Align text to the left */
     max-width: 600px;
     line-height: 1.6;
+}
+
+/* Responsive Section-yellow */
+@media screen and (max-width: 768px) {
+    .section-yellow {
+        flex-direction: column; /* Align content in a column */
+        padding-left: 20px; /* Less padding */
+        padding-right: 20px;
+        text-align: left; /* Keep text aligned to the left */
+    }
+
+    .yellow-title {
+        font-size: 2.5rem;
+        text-align: left; /* Ensure title is left-aligned */
+    }
+
+    .yellow-text {
+        font-size: 1.2rem;
+        text-align: left; /* Ensure text is left-aligned */
+        margin-bottom: 20px;
+    }
 }
 
 /* "Discover Your City" section */
@@ -142,36 +194,64 @@ header {
     background-color: var(--color-pink);
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     padding-left: 100px;
+    padding-top: 50px;
+    width: 100vw; /* Full width */
 }
 
 .pink-title {
     font-size: 5rem;
     color: var(--color-orange);
-    text-align: left;
+    text-align: left; /* Align text to the left */
     font-weight: bold;
-    margin-right: 50px;
-}
-
-.city-list {
-    list-style: none;
-    font-size: 2.5rem;
-    color: var(--color-beige); /* Default color is beige */
-}
-
-.city-list li {
     margin-bottom: 20px;
 }
 
-.city-list li a {
-    text-decoration: none;
-    color: var(--color-beige); /* Default beige */
-    transition: color 0.3s ease;
+.pink-text {
+    font-size: 24px;
+    color: var(--color-orange);
+    text-align: left;
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
-.city-list li a:hover {
-    color: var(--color-yellow); /* Change to yellow on hover */
+/* Responsive Section-pink */
+@media screen and (max-width: 768px) {
+    .section-pink {
+        flex-direction: column; /* Align content in a column */
+        padding-left: 20px; /* Less padding */
+        padding-right: 20px;
+        text-align: left; /* Keep text aligned to the left */
+    }
+
+    .pink-title {
+        font-size: 2.5rem;
+        text-align: left; /* Ensure title is left-aligned */
+        margin-bottom: 20px;
+    }
+
+    .pink-text {
+        font-size: 1.2rem;
+        text-align: left; /* Ensure text is left-aligned */
+    }
+
+    .city-list {
+        font-size: 1.5rem;
+        text-align: left; /* Ensure list is left-aligned */
+    }
+
+    .city-list li {
+        margin-bottom: 15px;
+    }
+
+    .swiss-map {
+        width: 100%; /* Ensure map scales down to fit screen */
+        max-width: 400px; /* Limit the maximum width of the map */
+        height: auto;
+        margin-top: 20px;
+    }
 }
 
 /* Footer styling */
@@ -182,6 +262,8 @@ footer {
     background-color: var(--color-beige);
     align-items: flex-start;
     flex-wrap: wrap;
+    width: 100vw; /* Full width */
+    text-align: left; /* Ensure footer content is left-aligned */
 }
 
 .footer-column {
@@ -242,7 +324,7 @@ footer {
     footer {
         flex-direction: column;
         padding: 20px;
-        text-align: left;
+        text-align: left; /* Ensure footer text is left-aligned */
     }
 
     .footer-column {
@@ -255,33 +337,5 @@ footer {
 
     .contact p {
         font-size: 1.2rem;
-    }
-}
-
-/* Responsive header */
-@media screen and (max-width: 768px) {
-    .city-nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 15px;
-        background-color: var(--color-pink);
-        padding: 20px;
-        border-radius: 10px;
-        z-index: 10;
-    }
-
-    /* Show the nav when active */
-    .city-nav ul.active {
-        display: flex;
-    }
-
-    .burger-menu {
-        display: block;
-    }
-
-    .logo {
-        font-size: 20px;
     }
 }

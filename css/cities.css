@@ -18,7 +18,6 @@ body {
     background-color: var(--color-beige);
 }
 
-/* Custom font class */
 .protest-strike-regular {
     font-family: "Protest Strike", sans-serif;
     font-weight: 400;
@@ -33,13 +32,17 @@ header {
     padding: 15px;
     background-color: var(--color-pink);
     position: relative;
+    width: 100%; /* Full width */
+    left: 0;
+    right: 0;
+    margin: 0; /* Remove any margin */
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
     color: var(--color-beige);
-    text-decoration: none; /* Link styling */
+    text-decoration: none;
 }
 
 .burger-menu {
@@ -51,7 +54,6 @@ header {
     cursor: pointer;
 }
 
-/* Navigation styling for cities */
 .city-nav ul {
     list-style: none;
     display: flex;
@@ -60,22 +62,53 @@ header {
 
 .city-nav a {
     text-decoration: none;
-    color: var(--color-orange); /* Orange as default color */
+    color: var(--color-orange);
     font-size: 1.5rem;
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    transition: color 0.3s ease;
 }
 
 .city-nav a:hover {
-    color: var(--color-yellow); /* Change to yellow on hover */
+    color: var(--color-yellow);
 }
 
-/* Bern Section Styling */
+@media screen and (max-width: 768px) {
+    .burger-menu {
+        display: block;
+    }
+
+    .city-nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 15px;
+        background-color: var(--color-pink);
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 10;
+        width: 100%;
+    }
+
+    .city-nav ul.active {
+        display: flex;
+    }
+}
+
+/* Main content section */
+main {
+    width: 100vw; /* Ensures the main content takes the full width of the viewport */
+    overflow-x: hidden; /* Avoids horizontal scrolling */
+}
+
 .bern-section {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     padding: 50px;
     background-color: var(--color-beige);
+    flex-wrap: wrap;
+    width: 100vw; /* Full width */
+    margin: 0; /* Remove default margin */
 }
 
 .bern-details {
@@ -83,12 +116,11 @@ header {
 }
 
 .bern-details h1 {
-    font-size: 6rem; /* Titel bleibt groß und orange */
+    font-size: 6rem;
     color: var(--color-orange);
     margin-bottom: 20px;
 }
 
-/* New Label and Value Styling */
 .label {
     font-size: 2rem;
     color: var(--color-pink);
@@ -105,7 +137,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 50%;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .bern-image {
@@ -124,6 +157,10 @@ header {
     margin-top: 30px;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100vw; /* Full width */
+    left: 0;
+    right: 0;
+    margin: 0; /* Ensure it covers the full width */
 }
 
 .statistics-title {
@@ -137,7 +174,8 @@ header {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-    gap: 15px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .time-button {
@@ -145,11 +183,12 @@ header {
     color: var(--color-orange);
     border: none;
     border-radius: 25px;
-    padding: 10px 20px;
-    font-size: 1.8rem;
+    padding: 10px 15px;
+    font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-family: "Protest Strike", sans-serif;
 }
 
 .time-button:hover {
@@ -157,13 +196,15 @@ header {
 }
 
 .statistics-box {
-    width: 80%;
-    max-width: 800px;
-    padding: 30px;
+    width: 100%;
+    max-width: 1000px;
+    height: 400px;
+    padding: 20px;
     background-color: var(--color-beige);
     border: 2px solid var(--color-orange);
     border-radius: 10px;
     text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Footer styling */
@@ -174,6 +215,7 @@ footer {
     background-color: var(--color-beige);
     align-items: flex-start;
     flex-wrap: wrap;
+    width: 100vw; /* Full width */
 }
 
 .footer-column {
@@ -183,16 +225,14 @@ footer {
     gap: 15px;
 }
 
-/* Home & About Us Links */
 .footer-column h3 a {
     font-size: 2.5rem;
     color: var(--color-yellow);
     text-decoration: none;
-    margin-bottom: 15px;
 }
 
 .footer-column h3 a:hover {
-    color: var(--color-orange); /* Change to orange on hover */
+    color: var(--color-orange);
 }
 
 /* City list styling */
@@ -213,7 +253,7 @@ footer {
 }
 
 .city-list li a:hover {
-    color: var(--color-yellow); /* Change to yellow on hover */
+    color: var(--color-yellow);
 }
 
 /* Contact column styling */
@@ -229,13 +269,28 @@ footer {
     margin-bottom: 15px;
 }
 
-/* Responsive footer adjustments */
+/* Responsive adjustments */
 @media screen and (max-width: 768px) {
-    footer {
+    header {
         flex-direction: column;
-        padding: 20px;
-        align-items: left;
-        text-align: left;
+    }
+
+    .city-nav ul {
+        flex-direction: column;
+    }
+
+    .bern-section {
+        flex-direction: column;
+    }
+
+    .time-button {
+        font-size: 1.2rem;
+        padding: 8px 12px;
+    }
+
+    .statistics-box {
+        height: 300px;
+        padding: 15px;
     }
 
     .footer-column {
@@ -248,33 +303,5 @@ footer {
 
     .contact p {
         font-size: 1.2rem;
-    }
-}
-
-/* Responsive header */
-@media screen and (max-width: 768px) {
-    .city-nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 15px;
-        background-color: var(--color-pink);
-        padding: 20px;
-        border-radius: 10px;
-        z-index: 10;
-    }
-
-    /* Show the nav when active */
-    .city-nav ul.active {
-        display: flex;
-    }
-
-    .burger-menu {
-        display: block;
-    }
-
-    .logo {
-        font-size: 20px;
     }
 }
