@@ -32,6 +32,7 @@ header {
     padding: 15px;
     background-color: var(--color-pink);
     position: relative;
+    width: 100vw;
 }
 
 .logo {
@@ -39,8 +40,10 @@ header {
     font-weight: bold;
     color: var(--color-beige);
     text-decoration: none;
+    justify-self: flex-start;
 }
 
+/* Burger menu styling */
 .burger-menu {
     display: none;
     font-size: 30px;
@@ -66,6 +69,32 @@ header {
 
 .city-nav a:hover {
     color: var(--color-yellow);
+}
+
+@media screen and (max-width: 768px) {
+    .burger-menu {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+    }
+    
+    .city-nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: var(--color-pink);
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 10;
+        width: 100%;
+    }
+
+    .city-nav ul.active {
+        display: flex;
+    }
 }
 
 /* About Us Section */
@@ -143,57 +172,61 @@ footer {
     background-color: var(--color-beige);
     align-items: flex-start;
     flex-wrap: wrap;
+    width: 100vw; /* Full width */
+    text-align: left; /* Ensure footer content is left-aligned */
 }
 
 .footer-column {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    gap: 15px;
+    gap: 15px; /* Einheitliche Abstände zwischen den Elementen */
 }
 
+/* Home & About Us Links */
 .footer-column h3 a {
     font-size: 2.5rem;
     color: var(--color-yellow);
     text-decoration: none;
+    margin-bottom: 15px; /* Anpassung für Konsistenz */
 }
 
 .footer-column h3 a:hover {
-    color: var(--color-orange);
+    color: var(--color-orange); /* Change to orange on hover */
 }
 
 /* City list styling */
 .city-list {
     list-style: none;
     font-size: 2.5rem;
-    color: var(--color-yellow);
+    color: var(--color-yellow); /* Default color is yellow */
 }
 
 .city-list li {
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Einheitlicher Abstand */
 }
 
 .city-list li a {
     text-decoration: none;
-    color: var(--color-orange);
+    color: var(--color-orange); /* Default orange */
     transition: color 0.3s ease;
 }
 
 .city-list li a:hover {
-    color: var(--color-yellow);
+    color: var(--color-yellow); /* Change to yellow on hover */
 }
 
 /* Contact column styling */
 .contact h3 {
     font-size: 2.5rem;
     color: var(--color-pink);
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Anpassung für Konsistenz */
 }
 
 .contact p {
     font-size: 1.5rem;
     color: var(--color-pink);
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Einheitlicher Abstand */
 }
 
 /* Responsive adjustments for team section */
@@ -217,8 +250,7 @@ footer {
     footer {
         flex-direction: column;
         padding: 20px;
-        align-items: left;
-        text-align: left;
+        text-align: left; /* Ensure footer text is left-aligned */
     }
 
     .footer-column {
@@ -231,32 +263,5 @@ footer {
 
     .contact p {
         font-size: 1.2rem;
-    }
-}
-
-/* Responsive header */
-@media screen and (max-width: 768px) {
-    .city-nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 15px;
-        background-color: var(--color-pink);
-        padding: 20px;
-        border-radius: 10px;
-        z-index: 10;
-    }
-
-    .city-nav ul.active {
-        display: flex;
-    }
-
-    .burger-menu {
-        display: block;
-    }
-
-    .logo {
-        font-size: 20px;
     }
 }

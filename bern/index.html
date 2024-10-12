@@ -15,8 +15,9 @@
 
     <!-- Header -->
     <header class="protest-strike-regular">
-        <div class="logo">Wheely Weather</div>
-        
+     <!-- Wrap logo in a link to the homepage -->
+    <a href="../index.html" class="logo">Wheely Weather</a>
+    
         <!-- Burger menu button -->
         <button class="burger-menu" onclick="toggleMenu()">
             &#9776;
@@ -71,26 +72,31 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="protest-strike-regular">
-        <div class="footer-column">
-            <h3><a href="../index.html" class="footer-link">Home</a></h3>
-            <h3><a href="../aboutus/index.html" class="footer-link">About us</a></h3>
-        </div>
-        <div class="footer-column">
-            <ul class="city-list">
-                <li><a href="../bern/index.html">Bern</a></li>
-                <li><a href="../zurich/index.html">Zurich</a></li>
-                <li><a href="../lugano/index.html">Lugano</a></li>
-                <li><a href="../lausanne/index.html">Lausanne</a></li>
-            </ul>
-        </div>
-        <div class="footer-column contact">
-            <h3>Contact</h3>
-            <p>selina.dostilio@stud.fhgr.ch</p>
-            <p>laura.khoury@stud.fhgr.ch</p>
-        </div>
-    </footer>
+
+   <!-- Footer -->
+<footer class="protest-strike-regular">
+    <div class="footer-column">
+        <!-- Link zur Startseite -->
+        <h3><a href="../index.html" class="footer-link">Home</a></h3>
+        <!-- Link zur "About us" Seite -->
+        <h3><a href="../aboutus/index.html" class="footer-link">About us</a></h3>
+    </div>
+    <div class="footer-column">
+        <!-- Stadtseiten Verlinkung -->
+        <ul class="city-list">
+            <li><a href="../bern/index.html">Bern</a></li>
+            <li><a href="../zurich/index.html">Zurich</a></li>
+            <li><a href="../lugano/index.html">Lugano</a></li>
+            <li><a href="../lausanne/index.html">Lausanne</a></li>
+        </ul>
+    </div>
+    <div class="footer-column contact">
+        <h3>Contact</h3>
+        <p>selina.dostilio@stud.fhgr.ch</p>
+        <p>laura.khoury@stud.fhgr.ch</p>
+    </div>
+</footer>
+
 
     <script>
         function toggleMenu() {

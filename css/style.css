@@ -33,13 +33,15 @@ header {
     padding: 15px;
     background-color: var(--color-pink);
     position: relative;
-    width: 100vw; /* Full width */
+    width: 100vw;
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
     color: var(--color-beige);
+    text-decoration: none;
+    justify-self: flex-start;
 }
 
 /* Burger menu styling */
@@ -61,41 +63,41 @@ header {
 
 .city-nav a {
     text-decoration: none;
-    color: var(--color-orange); /* Orange as default color */
+    color: var(--color-orange);
     font-size: 1.5rem;
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    transition: color 0.3s ease;
 }
 
 .city-nav a:hover {
-    color: var(--color-yellow); /* Change to yellow on hover */
+    color: var(--color-yellow);
 }
 
 @media screen and (max-width: 768px) {
-    @media screen and (max-width: 768px) {
-        .burger-menu {
-            display: block;
-            position: absolute;
-            right: 15px; /* Right-align the burger menu */
-            top: 15px;   /* Keep it vertically aligned in the header */
-        }
+    .burger-menu {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+    }
     
-        .city-nav ul {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 60px;
-            right: 0; /* Ensure the dropdown starts from the right */
-            background-color: var(--color-pink);
-            padding: 20px;
-            border-radius: 10px;
-            z-index: 10;
-            width: 100%; /* Full width */
-        }
-    
-        .city-nav ul.active {
-            display: flex;
-        }
-    }}
+    .city-nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: var(--color-pink);
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 10;
+        width: 100%;
+    }
+
+    .city-nav ul.active {
+        display: flex;
+    }
+}
+
 
 /* Section styling */
 main {
