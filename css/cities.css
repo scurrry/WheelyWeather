@@ -18,12 +18,6 @@ body {
     background-color: var(--color-beige);
 }
 
-.protest-strike-regular {
-    font-family: "Protest Strike", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
 /* Header styling */
 header {
     display: flex;
@@ -32,17 +26,13 @@ header {
     padding: 15px;
     background-color: var(--color-pink);
     position: relative;
-    width: 100%; /* Full width */
-    left: 0;
-    right: 0;
-    margin: 0; /* Remove any margin */
+    width: 100vw;
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
     color: var(--color-beige);
-    text-decoration: none;
 }
 
 .burger-menu {
@@ -54,6 +44,7 @@ header {
     cursor: pointer;
 }
 
+/* Navigation styling for cities */
 .city-nav ul {
     list-style: none;
     display: flex;
@@ -74,14 +65,17 @@ header {
 @media screen and (max-width: 768px) {
     .burger-menu {
         display: block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
     }
-
+    
     .city-nav ul {
         display: none;
         flex-direction: column;
         position: absolute;
         top: 60px;
-        right: 15px;
+        right: 0;
         background-color: var(--color-pink);
         padding: 20px;
         border-radius: 10px;
@@ -96,8 +90,8 @@ header {
 
 /* Main content section */
 main {
-    width: 100vw; /* Ensures the main content takes the full width of the viewport */
-    overflow-x: hidden; /* Avoids horizontal scrolling */
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 .bern-section {
@@ -107,8 +101,7 @@ main {
     padding: 50px;
     background-color: var(--color-beige);
     flex-wrap: wrap;
-    width: 100vw; /* Full width */
-    margin: 0; /* Remove default margin */
+    width: 100vw;
 }
 
 .bern-details {
@@ -157,10 +150,7 @@ main {
     margin-top: 30px;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100vw; /* Full width */
-    left: 0;
-    right: 0;
-    margin: 0; /* Ensure it covers the full width */
+    width: 100vw;
 }
 
 .statistics-title {
@@ -188,7 +178,6 @@ main {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
-    font-family: "Protest Strike", sans-serif;
 }
 
 .time-button:hover {
@@ -215,7 +204,7 @@ footer {
     background-color: var(--color-beige);
     align-items: flex-start;
     flex-wrap: wrap;
-    width: 100vw; /* Full width */
+    width: 100vw;
 }
 
 .footer-column {
@@ -235,7 +224,6 @@ footer {
     color: var(--color-orange);
 }
 
-/* City list styling */
 .city-list {
     list-style: none;
     font-size: 2.5rem;
