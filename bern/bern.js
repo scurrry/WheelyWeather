@@ -1,9 +1,9 @@
-// Definition von DOM-Elementen
+//Definition von DOM Elementen
 const yesterdayButton = document.querySelector("#yesterday");
 const threeDaysAgoButton = document.querySelector("#threeDaysAgo");
 const oneWeekAgoButton = document.querySelector("#oneWeekAgo");
 
-// Eventlistener für die Buttons
+//Eventlistener für die Buttons
 yesterdayButton.addEventListener("click", async () => {
     console.log("Yesterday");
     // Fetch data from the API and show the results in the chart (destroy the old chart)
@@ -14,12 +14,20 @@ threeDaysAgoButton.addEventListener("click", async () => {
     let url = "https://etl.mmp.li/WheelyWeather/etl/unloadThreeDays.php?location=Bern&date=";
     const data = await fetchData(url);
     console.log(data);
-    //TODO: Create the new chart
-});
+    //TODO Create the new chart
+
+
+    //TODO Hier müsst ihr den neuen Fetch auf die unloadThreeDays.php machen
+    // Nachdem FetchData dynamisch erstellt wurde hier den Funtkionsaufruf anpassen
+    //fetchData("unloadThreeDays.php", "bern");
+
+}
+);
 
 oneWeekAgoButton.addEventListener("click", async () => {
     console.log("One Week Ago");
-});
+}
+);
 
 // Helper function to get the date for yesterday in 'YYYY-MM-DD' format
 function getYesterdayDate() {
@@ -37,6 +45,8 @@ function getHourlyLabels() {
 }
 
 // Fetch data from the API for yesterday
+// TODO das Fetch Data muss so variabel gestaltet sein, dass die verschiedenen Endpoints angesteuert werden könne
+// ${unload.php} muss angepasst werden
 async function fetchData(url) {
     const yesterday = getYesterdayDate();
     const apiUrl = `${url}${yesterday}`;
@@ -51,29 +61,6 @@ async function fetchData(url) {
         return data;
     } catch (error) {
         console.error('Fetch error:', error);
-    }
-}
-
-// Fetch weather data for Bern
-async function fetchWeatherData() {
-    const latitude = 46.948;
-    const longitude = 7.4474;
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,rain`;
-
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error('Fehler beim Abrufen der Daten');
-        }
-        const data = await response.json();
-        const currentWeather = data.current || {};
-
-        // Update the HTML with the fetched weather data
-        document.getElementById('rain').textContent = currentWeather.rain !== undefined ? `${currentWeather.rain} mm` : 'Keine Daten';
-        document.getElementById('temperature').textContent = currentWeather.temperature_2m !== undefined ? `${currentWeather.temperature_2m}°C` : 'Keine Daten';
-        document.getElementById('weather').textContent = currentWeather.rain > 0 ? 'rainy' : 'clear';
-    } catch (error) {
-        console.error('Fehler:', error);
     }
 }
 
@@ -190,8 +177,5 @@ async function initChart() {
     });
 }
 
-// Automatically load the weather data and the chart when the page loads
-window.onload = function() {
-    fetchWeatherData();
-    initChart();
-};
+// Automatically load the chart when the page loads
+window.onload = initChart;
