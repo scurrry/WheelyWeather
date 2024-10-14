@@ -28,7 +28,7 @@ try {
     $sql = "SELECT id, state_id, state_name, city, vehicles_available, network_id, network_name, latitude, longitude, elevation, rain, temperature_2m 
     FROM BikeStationsWeather 
     WHERE city = ? 
-    AND created_at >= NOW() - INTERVAL 3 DAY
+    AND created_at >= DATE_SUB(CURDATE(), INTERVAL 3 DAY)
     ORDER BY created_at DESC"; // Sortierung nach ID, da 'created_at' nicht angegeben wurde
 
     // Bereitet die SQL-Anweisung vor

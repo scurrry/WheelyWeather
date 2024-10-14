@@ -1,33 +1,38 @@
-//Definition von DOM Elementen
+// Definition von DOM Elementen
 const yesterdayButton = document.querySelector("#yesterday");
 const threeDaysAgoButton = document.querySelector("#threeDaysAgo");
 const oneWeekAgoButton = document.querySelector("#oneWeekAgo");
 
-//Eventlistener für die Buttons
+// Eventlistener für die Buttons
 yesterdayButton.addEventListener("click", async () => {
     console.log("Yesterday");
-    // Fetch data from the API and show the results in the chart (destroy the old chart)
+    let url = "https://etl.mmp.li/WheelyWeather/etl/unload.php?location=Bern&date=";
+    const data = await fetchData(url);
+    if (!data || data.length === 0) {
+        console.error('No data returned from API');
+        return;
+    }
+    updateChartWithNewData(data);
 });
 
 threeDaysAgoButton.addEventListener("click", async () => {
     console.log("Three Days Ago");
-    let url = "https://etl.mmp.li/WheelyWeather/etl/unloadThreeDays.php?location=Bern&date=";
-    const data = await fetchData(url);
-    console.log(data);
-    //TODO Create the new chart
+    let url = "https://etl.mmp.li/WheelyWeather/etl/unloadThreeDays.php?location=Bern";
+    const data = await fetchData(url); // Holt die Daten von vor drei Tagen
+    
+    if (!data || data.length === 0) {
+        console.error('No data returned from API');
+        return;
+    }
 
-
-    //TODO Hier müsst ihr den neuen Fetch auf die unloadThreeDays.php machen
-    // Nachdem FetchData dynamisch erstellt wurde hier den Funtkionsaufruf anpassen
-    //fetchData("unloadThreeDays.php", "bern");
-
-}
-);
+    // Aktualisiere das bestehende Diagramm mit den neuen Daten
+    updateChartWithNewData(data);
+});
 
 oneWeekAgoButton.addEventListener("click", async () => {
     console.log("One Week Ago");
-}
-);
+    // Hier kannst du die Logik für "Eine Woche" hinzufügen
+});
 
 // Helper function to get the date for yesterday in 'YYYY-MM-DD' format
 function getYesterdayDate() {
@@ -44,9 +49,7 @@ function getHourlyLabels() {
     return Array.from({ length: 24 }, (_, i) => `${i}:00`);
 }
 
-// Fetch data from the API for yesterday
-// TODO das Fetch Data muss so variabel gestaltet sein, dass die verschiedenen Endpoints angesteuert werden könne
-// ${unload.php} muss angepasst werden
+// Fetch data from the API for different endpoints
 async function fetchData(url) {
     const yesterday = getYesterdayDate();
     const apiUrl = `${url}${yesterday}`;
@@ -64,16 +67,8 @@ async function fetchData(url) {
     }
 }
 
-// Function to initialize the chart
-async function initChart() {
-    let url = "https://etl.mmp.li/WheelyWeather/etl/unload.php?location=Bern&date="
-    const data = await fetchData(url);
-
-    if (!data || data.length === 0) {
-        console.error('No data returned from API');
-        return;
-    }
-
+// Function to update the existing chart with new data
+function updateChartWithNewData(data) {
     const MAX_PUBLIBIKES = 50; // Maximum Publibikes
 
     // Assuming the data covers all 24 hours
@@ -92,13 +87,59 @@ async function initChart() {
         }
     });
 
-    // Calculate dynamic maximums
+    // Dynamische Maxima berechnen
+    const maxTemperature = Math.max(...temperatures);
+    const maxRain = Math.max(...rainData);
+    const maxVehiclesInUse = Math.max(...vehiclesInUse);
+
+    // Aktualisiere die Daten des bestehenden Charts
+    window.myChart.data.labels = hourlyLabels;  // Aktualisiere die Labels
+    window.myChart.data.datasets[0].data = temperatures;  // Temperatur-Daten
+    window.myChart.data.datasets[1].data = rainData;  // Regen-Daten
+    window.myChart.data.datasets[2].data = vehiclesInUse;  // Verfügbare Fahrräder
+
+    // Aktualisiere die Achsenlimits, falls notwendig
+    window.myChart.options.scales.tempY.max = maxTemperature;
+    window.myChart.options.scales.rainY.max = maxRain;
+    window.myChart.options.scales.y1.max = maxVehiclesInUse;
+
+    // Aktualisiere das Diagramm, um die Änderungen anzuzeigen
+    window.myChart.update();
+}
+
+// Function to initialize the chart on page load
+async function initChart() {
+    let url = "https://etl.mmp.li/WheelyWeather/etl/unload.php?location=Bern&date="
+    const data = await fetchData(url);
+
+    if (!data || data.length === 0) {
+        console.error('No data returned from API');
+        return;
+    }
+
+    const MAX_PUBLIBIKES = 50; // Maximum Publibikes
+
+    const hourlyLabels = getHourlyLabels();
+    const temperatures = Array(24).fill(null);
+    const vehiclesAvailable = Array(24).fill(null);
+    const rainData = Array(24).fill(null);
+    const vehiclesInUse = Array(24).fill(null);
+
+    data.forEach((item, index) => {
+        if (index < 24) {
+            temperatures[index] = item.temperature_2m || null;
+            vehiclesAvailable[index] = item.vehicles_available || null;
+            rainData[index] = item.rain || null;
+            vehiclesInUse[index] = MAX_PUBLIBIKES - vehiclesAvailable[index];
+        }
+    });
+
     const maxTemperature = Math.max(...temperatures);
     const maxRain = Math.max(...rainData);
     const maxVehiclesInUse = Math.max(...vehiclesInUse);
 
     const ctx = document.getElementById('wheelyWeatherChart').getContext('2d');
-    new Chart(ctx, {
+    window.myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: hourlyLabels,
