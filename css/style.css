@@ -116,12 +116,24 @@ main {
 
 .section-beige {
     background-color: var(--color-beige);
-    background-image: url('images/velos.png'); 
-    background-size: cover;
-    background-position: center;
-    height: 100vh; /* Full viewport height */
-    width: 100vw; /* Full width */
+    background-image: url('../images/Velos.png');
+    background-size: 150%; /* Hintergrund vergrößern, damit der Effekt flüssiger wirkt */
+    background-position: 0 50%; /* Initiale Position (links zentriert) */
+    height: 100vh;
+    width: 100vw;
+    animation: bikeMovement 10s linear infinite; /* Animation für 20 Sekunden im Loop */
 }
+
+/* Keyframes für die Bewegung der Fahrräder */
+@keyframes bikeMovement {
+    0% {
+        background-position: 100% 50%; /* Startet rechts außerhalb des Bildes */
+    }
+    100% {
+        background-position: -100% 50%; /* Beendet links außerhalb des Bildes */
+    }
+}
+
 
 .main-title {
     font-size: 10rem;
