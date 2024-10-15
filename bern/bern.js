@@ -19,6 +19,7 @@ threeDaysAgoButton.addEventListener("click", async () => {
     console.log("Three Days Ago");
     let url = "https://etl.mmp.li/WheelyWeather/etl/unloadThreeDays.php?location=Bern";
     const data = await fetchData(url); // Holt die Daten von vor drei Tagen
+    console.log(data);
     
     if (!data || data.length === 0) {
         console.error('No data returned from API');
@@ -27,11 +28,6 @@ threeDaysAgoButton.addEventListener("click", async () => {
 
     // Aktualisiere das bestehende Diagramm mit den neuen Daten
     updateChartWithNewData(data);
-});
-
-oneWeekAgoButton.addEventListener("click", async () => {
-    console.log("One Week Ago");
-    // Hier kannst du die Logik für "Eine Woche" hinzufügen
 });
 
 // Helper function to get the date for yesterday in 'YYYY-MM-DD' format
@@ -52,7 +48,7 @@ function getHourlyLabels() {
 // Fetch data from the API for different endpoints
 async function fetchData(url) {
     const yesterday = getYesterdayDate();
-    const apiUrl = `${url}${yesterday}`;
+    const apiUrl = `${url}&date=${yesterday}`;
     console.log(apiUrl);
     
     try {

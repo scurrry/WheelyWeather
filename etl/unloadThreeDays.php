@@ -25,11 +25,11 @@ try {
 
     //TODO SQL-Query, um Daten basierend auf dem Standort auszuwählen, sortiert nach Zeitstempel (falls vorhanden)
     //Passe das SELECT Statement an, dass die Daten der letzten 3 Tage geladen werden
-    $sql = "SELECT id, state_id, state_name, city, vehicles_available, network_id, network_name, latitude, longitude, elevation, rain, temperature_2m 
+    $sql = "SELECT * 
     FROM BikeStationsWeather 
     WHERE city = ? 
     AND created_at >= DATE_SUB(CURDATE(), INTERVAL 3 DAY)
-    ORDER BY created_at DESC"; // Sortierung nach ID, da 'created_at' nicht angegeben wurde
+    ORDER BY created_at DESC";
 
     // Bereitet die SQL-Anweisung vor
     $stmt = $pdo->prepare($sql);
