@@ -17,7 +17,7 @@ $cities = [
         'longitude' => 7.43746
     ],
     [
-        'name' => 'Lausanne HB',
+        'name' => 'Lausanne',
         'id' => 28,
         'latitude' => 47.54364,
         'longitude' => 7.59994

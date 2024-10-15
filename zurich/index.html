@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheely Weather - Zurich</title>
+    <!-- Link to cities.css -->
+    <link rel="stylesheet" href="../css/cities.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
+</head>
+<body class="protest-strike-regular">
+
+    <!-- Header -->
+    <header class="protest-strike-regular">
+     <!-- Wrap logo in a link to the homepage -->
+    <a href="../index.html" class="logo">Wheely Weather</a>
+    
+        <!-- Burger menu button -->
+        <button class="burger-menu" onclick="toggleMenu()">
+            &#9776;
+        </button>
+        <nav class="city-nav">
+            <ul id="nav-list">
+                <li><a href="../bern/index.html">Bern</a></li>
+                <li><a href="../zurich/index.html">Zurich</a></li>
+                <li><a href="../lugano/index.html">Lugano</a></li>
+                <li><a href="../lausanne/index.html">Lausanne</a></li>
+                <li><a href="../aboutus/index.html">About us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Zurich Section -->
+        <section class="bern-section">
+            <div class="bern-details">
+                <h1>Zurich</h1>
+                <p class="label">Rain:</p>
+                <p class="value" id="rain">Loading...</p> <!-- Dynamisch aktualisierter Wert -->
+                <p class="label">Weather:</p>
+                <p class="value" id="weather">Loading...</p> <!-- Dynamisch aktualisierter Wert -->
+                <p class="label">Temperature:</p>
+                <p class="value" id="temperature">Loading...</p> <!-- Dynamisch aktualisierter Wert -->
+                <p class="label">Number of Bikes available:</p>
+                <p class="value">XY</p>
+            </div>
+
+            <!-- Pink map of Switzerland -->
+            <div class="swiss-map">
+                <img src="../images/schweiz_rosa.png" alt="Pink map of Switzerland" class="swiss-map">
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="statistics-section">
+            <h2 class="statistics-title">Bike & Weather Statistics</h2>
+
+            <!-- Buttons for time selection -->
+            <div class="button-container">
+                <button class="time-button" id="yesterday">Yesterday</button>
+                <button class="time-button" id="threeDaysAgo">3 days ago</button>
+            </div>
+
+            <!-- Statistics Box -->
+            <div class="statistics-box">
+                <canvas id="wheelyWeatherChart" width="400" height="200"></canvas>
+            </div>
+        </section>
+    </main>
+
+
+   <!-- Footer -->
+<footer class="protest-strike-regular">
+    <div class="footer-column">
+        <!-- Link zur Startseite -->
+        <h3><a href="../index.html" class="footer-link">Home</a></h3>
+        <!-- Link zur "About us" Seite -->
+        <h3><a href="../aboutus/index.html" class="footer-link">About us</a></h3>
+    </div>
+    <div class="footer-column">
+        <!-- Stadtseiten Verlinkung -->
+        <ul class="city-list">
+            <li><a href="../bern/index.html">Bern</a></li>
+            <li><a href="../zurich/index.html">Zurich</a></li>
+            <li><a href="../lugano/index.html">Lugano</a></li>
+            <li><a href="../lausanne/index.html">Lausanne</a></li>
+        </ul>
+    </div>
+    <div class="footer-column contact">
+        <h3>Contact</h3>
+        <p>selina.dostilio@stud.fhgr.ch</p>
+        <p>laura.khoury@stud.fhgr.ch</p>
+    </div>
+</footer>
+
+
+    <script src="zurich.js"></script>
+</body>
+</html>
