@@ -50,7 +50,7 @@
 
             <!-- Pink map of Switzerland -->
             <div class="swiss-map">
-                <img src="../images/schweiz_rosa.png" alt="Pink map of Switzerland" class="swiss-map">
+                <img src="../images/bild_bern.png" alt="Pink map of Switzerland" class="swiss-map">
             </div>
         </section>
 
@@ -68,6 +68,8 @@
             <div class="statistics-box">
                 <canvas id="wheelyWeatherChart" width="400" height="200"></canvas>
             </div>
+
+            
         </section>
     </main>
 
@@ -97,183 +99,6 @@
 </footer>
 
 
-    <!-- <script>
-        function toggleMenu() {
-            const navList = document.getElementById('nav-list');
-            navList.classList.toggle('active');
-        }
-
-        // Fetch weather data for Bern
-        async function fetchWeatherData() {
-            const latitude = 46.948;
-            const longitude = 7.4474;
-            const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,rain`;
-
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error('Fehler beim Abrufen der Daten');
-                }
-                const data = await response.json();
-                const currentWeather = data.current || {};
-
-                // Update the HTML with the fetched weather data
-                document.getElementById('rain').textContent = currentWeather.rain !== undefined ? `${currentWeather.rain} mm` : 'Keine Daten';
-                document.getElementById('temperature').textContent = currentWeather.temperature_2m !== undefined ? `${currentWeather.temperature_2m}°C` : 'Keine Daten';
-                document.getElementById('weather').textContent = currentWeather.rain > 0 ? 'rainy' : 'clear';
-            } catch (error) {
-                console.error('Fehler:', error);
-            }
-        }
-
-        // Automatically load the weather data and the chart when the page loads
-        window.onload = function() {
-            fetchWeatherData();
-            initChart();  // Keep your original chart loading logic
-        };
-
-        // Chart.js initialization logic (your original code)
-        async function initChart() {
-            let url = "https://etl.mmp.li/WheelyWeather/etl/unload.php?location=Bern&date="
-            const data = await fetchData(url);
-
-            if (!data || data.length === 0) {
-                console.error('No data returned from API');
-                return;
-            }
-
-            const MAX_PUBLIBIKES = 50; // Maximum Publibikes
-
-            const hourlyLabels = getHourlyLabels();
-            const temperatures = Array(24).fill(null);
-            const vehiclesAvailable = Array(24).fill(null);
-            const rainData = Array(24).fill(null);
-            const vehiclesInUse = Array(24).fill(null);
-
-            data.forEach((item, index) => {
-                if (index < 24) {
-                    temperatures[index] = item.temperature_2m || null;
-                    vehiclesAvailable[index] = item.vehicles_available || null;
-                    rainData[index] = item.rain || null;
-                    vehiclesInUse[index] = MAX_PUBLIBIKES - vehiclesAvailable[index];
-                }
-            });
-
-            const maxTemperature = Math.max(...temperatures);
-            const maxRain = Math.max(...rainData);
-            const maxVehiclesInUse = Math.max(...vehiclesInUse);
-
-            const ctx = document.getElementById('wheelyWeatherChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: hourlyLabels,
-                    datasets: [
-                        {
-                            label: 'Temperature (°C)',
-                            data: temperatures,
-                            borderColor: '#FE4B01',
-                            backgroundColor: 'rgba(254, 75, 1, 0.2)',
-                            fill: true,
-                            yAxisID: 'tempY',
-                        },
-                        {
-                            label: 'Rain (mm)',
-                            data: rainData,
-                            borderColor: '#FBB108',
-                            backgroundColor: 'rgba(251, 177, 8, 0.2)',
-                            fill: false,
-                            yAxisID: 'rainY',
-                        },
-                        {
-                            label: 'Used Publibikes',
-                            data: vehiclesInUse,
-                            borderColor: '#FF9B9E',
-                            backgroundColor: 'rgba(255, 155, 158, 0.2)',
-                            fill: true,
-                            yAxisID: 'y1',
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    interaction: {
-                        mode: 'index',
-                        intersect: false,
-                    },
-                    scales: {
-                        tempY: {
-                            type: 'linear',
-                            position: 'left',
-                            min: 0,
-                            max: maxTemperature,
-                            title: {
-                                display: true,
-                                text: 'Temperature (°C)'
-                            },
-                        },
-                        rainY: {
-                            type: 'linear',
-                            position: 'left',
-                            min: 0,
-                            max: maxRain,
-                            title: {
-                                display: true,
-                                text: 'Rain (mm)'
-                            },
-                            grid: {
-                                drawOnChartArea: false,
-                            },
-                        },
-                        y1: {
-                            type: 'linear',
-                            position: 'right',
-                            min: 0,
-                            max: maxVehiclesInUse,
-                            title: {
-                                display: true,
-                                text: 'Used Publibikes'
-                            },
-                            grid: {
-                                drawOnChartArea: false,
-                            },
-                        }
-                    }
-                }
-            });
-        }
-
-        // Helper functions
-        function getYesterdayDate() {
-            const today = new Date();
-            today.setDate(today.getDate() - 1);
-            const year = today.getFullYear();
-            const month = String(today.getMonth() + 1).padStart(2, '0');
-            const day = String(today.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        }
-
-        function getHourlyLabels() {
-            return Array.from({ length: 24 }, (_, i) => `${i}:00`);
-        }
-
-        async function fetchData(url) {
-            const yesterday = getYesterdayDate();
-            const apiUrl = `${url}${yesterday}`;
-            console.log(apiUrl);
-
-            try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                return data;
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        }
-    </script> -->
     <script src="bern.js"></script>
 </body>
 </html>

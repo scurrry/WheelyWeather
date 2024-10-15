@@ -244,6 +244,13 @@ main {
     justify-content: center;
 }
 
+@media only screen and (max-width: 768px) {
+    .statistics-box {
+        height: auto;
+        padding: 5px;
+    }
+}
+
 
 /* Footer styling */
 footer {
