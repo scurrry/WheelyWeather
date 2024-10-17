@@ -247,7 +247,8 @@ main {
 @media only screen and (max-width: 768px) {
     .statistics-box {
         height: auto;
-        padding: 5px;
+        padding: 0px;
+        border-radius: 10px;
     }
 }
 
