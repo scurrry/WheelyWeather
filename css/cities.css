@@ -28,7 +28,6 @@ header {
     position: relative;
     width: 100vw;
 }
-
 .logo {
     font-size: 24px;
     font-weight: bold;
@@ -36,7 +35,6 @@ header {
     text-decoration: none;
     justify-self: flex-start;
 }
-
 /* Burger menu styling */
 .burger-menu {
     display: none;
@@ -46,25 +44,21 @@ header {
     border: none;
     cursor: pointer;
 }
-
 /* Navigation styling for cities */
 .city-nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
 }
-
 .city-nav a {
     text-decoration: none;
     color: var(--color-orange);
     font-size: 1.5rem;
     transition: color 0.3s ease;
 }
-
 .city-nav a:hover {
     color: var(--color-yellow);
 }
-
 @media screen and (max-width: 768px) {
     .burger-menu {
         display: block;
@@ -85,7 +79,6 @@ header {
         z-index: 10;
         width: 100%;
     }
-
     .city-nav ul.active {
         display: flex;
     }

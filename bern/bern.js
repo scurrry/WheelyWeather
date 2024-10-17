@@ -1,3 +1,69 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const apiUrl = 'https://api.publibike.ch/v1/public/stations/217';
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            // Zähle die Anzahl der Velos
+            const numberOfBikes = data.vehicles.length;
+
+            // ID in der HTML aktualisieren
+            document.getElementById('bikeCount').textContent = numberOfBikes;
+        })
+        .catch(error => {
+            console.error('Error fetching bike data:', error);
+            document.getElementById('bikeCount').textContent = 'Error fetching bike data';
+        });
+});
+
+
+
+// Daten für aktuelles Wetter von der Open-Meteo API abrufen (Stadt Bern)
+
+document.addEventListener("DOMContentLoaded", function () {
+    const apiUrl = 'https://api.open-meteo.com/v1/forecast?latitude=46.948&longitude=7.447&hourly=temperature_2m,rain,weather_code&forecast_days=1';
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Wetterdaten für die erste Stunde des Tages
+            const temperature = data.hourly.temperature_2m[0];
+            const rain = data.hourly.rain[0];
+            const weatherCode = data.hourly.weather_code[0];
+
+            // IDs in der HTML aktualisieren
+            document.getElementById('temperature').textContent = `${temperature} °C`;
+            document.getElementById('rain').textContent = `${rain} mm`;
+
+            // Wettercode zu Beschreibung umwandeln (vereinfacht)
+            let weatherDescription = '';
+            switch (weatherCode) {
+                case 0:
+                    weatherDescription = 'Clear';
+                    break;
+                case 1:
+                    weatherDescription = 'Mainly clear';
+                    break;
+                case 2:
+                    weatherDescription = 'Partly cloudy';
+                    break;
+                case 3:
+                    weatherDescription = 'Overcast';
+                    break;
+                // Weitere Codes je nach API-Dokumentation hinzufügen
+                default:
+                    weatherDescription = 'Unknown weather';
+            }
+            document.getElementById('weather').textContent = weatherDescription;
+        })
+        .catch(error => {
+            console.error('Error fetching weather data:', error);
+            document.getElementById('temperature').textContent = 'Error';
+            document.getElementById('rain').textContent = 'Error';
+            document.getElementById('weather').textContent = 'Error';
+        });
+});
 
 
 // Definition von DOM Elementen

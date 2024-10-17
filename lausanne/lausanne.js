@@ -1,3 +1,44 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const apiUrl = 'https://api.open-meteo.com/v1/forecast?latitude=46.5197&longitude=6.6323&hourly=temperature_2m,rain,weather_code&forecast_days=1';
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const temperature = data.hourly.temperature_2m[0];
+            const rain = data.hourly.rain[0];
+            const weatherCode = data.hourly.weather_code[0];
+
+            document.getElementById('temperature').textContent = `${temperature} °C`;
+            document.getElementById('rain').textContent = `${rain} mm`;
+
+            let weatherDescription = '';
+            switch (weatherCode) {
+                case 0:
+                    weatherDescription = 'Clear';
+                    break;
+                case 1:
+                    weatherDescription = 'Mainly clear';
+                    break;
+                case 2:
+                    weatherDescription = 'Partly cloudy';
+                    break;
+                case 3:
+                    weatherDescription = 'Overcast';
+                    break;
+                default:
+                    weatherDescription = 'Unknown weather';
+            }
+            document.getElementById('weather').textContent = weatherDescription;
+        })
+        .catch(error => {
+            console.error('Error fetching weather data:', error);
+            document.getElementById('temperature').textContent = 'Error';
+            document.getElementById('rain').textContent = 'Error';
+            document.getElementById('weather').textContent = 'Error';
+        });
+});
+
+
 // Definition von DOM Elementen
 const yesterdayButton = document.querySelector("#yesterday");
 const threeDaysAgoButton = document.querySelector("#threeDaysAgo");
