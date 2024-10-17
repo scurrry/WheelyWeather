@@ -276,6 +276,7 @@ main {
     .city-list {
         font-size: 1.5rem;
         text-align: left; /* Ensure list is left-aligned */
+
     }
 
     .city-list li {
@@ -326,6 +327,8 @@ footer {
     list-style: none;
     font-size: 2.5rem;
     color: var(--color-yellow); /* Default color is yellow */
+    max-width: 600px;
+
 }
 
 .city-list li {

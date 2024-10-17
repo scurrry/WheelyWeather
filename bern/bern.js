@@ -1,3 +1,5 @@
+
+
 // Definition von DOM Elementen
 const yesterdayButton = document.querySelector("#yesterday");
 const threeDaysAgoButton = document.querySelector("#threeDaysAgo");
