@@ -154,33 +154,19 @@ main {
     overflow: hidden;         /* Verhindert Scrollbars */
 }
 
-#swiss-map {
-    max-width: 50%;           /* Die Karte nimmt maximal 50% der Breite des Containers ein */
-    height: auto;             /* Höhe bleibt proportional */
-    transition: all 0.5s ease; /* Animation für weiches Verändern der Größe */
+.responsive-image {
+    width: 100%; /* Bild füllt den Container */
+    max-width: 90%; /* Maximale Breite des Bildes */
+    height: auto; /* Beibehaltung des Seitenverhältnisses */
+    margin-left: auto; /* Zentrieren */
+    margin-right: auto; /* Zentrieren */
 }
 
-/* Medium Screens (Tablets) */
-@media screen and (max-width: 1024px) {
-    #swiss-map {
-        max-width: 60%;       /* Verkleinere die Karte leicht */
-        transform: translateY(5%); /* Schiebe sie leicht nach unten */
-    }
-}
 
-/* Kleine Bildschirme (Smartphones im Hochformat) */
 @media screen and (max-width: 768px) {
-    #swiss-map {
-        max-width: 70%;       /* Verkleinere die Karte weiter */
-        transform: translateY(10%); /* Schiebe die Karte etwas mehr nach unten */
-    }
-}
-
-/* Sehr kleine Bildschirme (kleinere Smartphones) */
-@media screen and (max-width: 480px) {
-    #swiss-map {
-        max-width: 80%;       /* Noch kleinere Karte */
-        transform: translateY(20%); /* Schiebe die Karte weiter nach unten */
+    .responsive-image {
+        max-width: 100%; /* Kleinere Bildbreite für mobile Geräte */
+        margin-top: 20px; /* Abstand zwischen Text und Bild */
     }
 }
 
