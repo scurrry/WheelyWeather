@@ -1,3 +1,9 @@
+function toggleMenu() {
+    const navList = document.getElementById('nav-list');
+    navList.classList.toggle('active');
+}
+
+
 // Daten für aktuelles Wetter von der Open-Meteo API abrufen (Stadt Bern)
 
 document.addEventListener("DOMContentLoaded", function () {

@@ -1,3 +1,10 @@
+
+function toggleMenu() {
+    const navList = document.getElementById('nav-list');
+    navList.classList.toggle('active');
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const apiUrl = 'https://api.open-meteo.com/v1/forecast?latitude=46.5197&longitude=6.6323&hourly=temperature_2m,rain,weather_code&forecast_days=1';
 
