@@ -1,24 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const apiUrl = 'https://api.publibike.ch/v1/public/stations/217';
-
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            // Zähle die Anzahl der Velos
-            const numberOfBikes = data.vehicles.length;
-
-            // ID in der HTML aktualisieren
-            document.getElementById('bikeCount').textContent = numberOfBikes;
-        })
-        .catch(error => {
-            console.error('Error fetching bike data:', error);
-            document.getElementById('bikeCount').textContent = 'Error fetching bike data';
-        });
-});
-
-
-
 // Daten für aktuelles Wetter von der Open-Meteo API abrufen (Stadt Bern)
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -53,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     break;
                 // Weitere Codes je nach API-Dokumentation hinzufügen
                 default:
-                    weatherDescription = 'Unknown weather';
+                    weatherDescription = 'Clear';
             }
             document.getElementById('weather').textContent = weatherDescription;
         })

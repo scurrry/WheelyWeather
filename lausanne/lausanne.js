@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     weatherDescription = 'Overcast';
                     break;
                 default:
-                    weatherDescription = 'Unknown weather';
+                    weatherDescription = 'Clear';
             }
             document.getElementById('weather').textContent = weatherDescription;
         })
